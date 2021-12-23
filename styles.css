@@ -1,0 +1,46 @@
+* {
+margin:0;
+padding: 0;
+box-sizing: border-box;
+font-family: './assets/fonts/bold-box.ttf';
+}
+
+section{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    scroll-snap-align: start;
+}
+
+.container{
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 45px 200px 30px 200px;
+}
+.middleContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-transform: uppercase;
+    font-size: 60px;
+}
+.one{
+    background-color: rgba(18,18,18,255)
+    ;
+}
+.two{
+    background-color: rgb(211, 79, 79);
+}
+.three{
+    background-color: rgb(67, 91, 175);
+}
+
