@@ -1,8 +1,14 @@
+@font-face {
+    font-family: Dosis;
+    src: url(assets/fonts/Dosis/Dosis-VariableFont_wght.ttf);
+}
 * {
 margin:0;
 padding: 0;
 box-sizing: border-box;
-font-family: './assets/fonts/bold-box.ttf';
+font-family: Dosis;
+
+
 }
 
 section{
@@ -22,8 +28,34 @@ section{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    padding: 45px 200px 30px 200px;
+    padding: 45px 150px;
+    font-size: 25px;
 }
+.nav-bar div{
+    display: flex;
+
+}
+.nav-bar .links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.nav-bar .links a:visited a:link{
+    color: blueviolet;
+}
+.nav-bar .links a:link{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-left: 10px;
+}
+.nav-bar .links a:hover{
+    color: red;
+   }
+
+.nav-bar .socials i{
+    padding: 10px;
+   }
 .middleContainer{
     display: flex;
     flex-direction: column;
@@ -32,7 +64,9 @@ section{
     height: 100%;
     text-transform: uppercase;
     font-size: 60px;
+    
 }
+
 .one{
     background-color: rgba(18,18,18,255)
     ;
