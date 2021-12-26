@@ -84,14 +84,17 @@ section .middleContainer h5 {
   text-transform: uppercase;
   font-weight: 900;
   margin-left: 20px;
-  color: #3756BB;
+  color: #2e56d8;
   text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 .nav-bar .links a:hover {
-  color: red;
+  color: #c80000;
 }
 .nav-bar .socials i {
   padding: 10px;
+}
+.nav-bar .socials i:hover {
+  color: #c80000;
 }
 .two {
   -webkit-box-orient: horizontal;
@@ -130,6 +133,116 @@ section .middleContainer h5 {
 }
 .two .two-content:hover {
   opacity: 100%;
+}
+.work {
+  height: 200vh;
+  padding-top: 300px;
+  place-items: center center;
+}
+.work .middleContainer {
+  height: 100px;
+  margin-bottom: 40px;
+}
+.work .cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+  gap: 40px;
+}
+.work .cards .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #1c1b29;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+  width: 400px;
+  height: 600px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.work .cards .card .icons {
+  position: absolute;
+  z-index: 1;
+  bottom: 40%;
+  right: 0;
+  font-size: 18px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 30%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.work .cards .card .icons a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.work .cards .card .icons a:hover {
+  opacity: 1;
+}
+.work .cards .card .icons a i {
+  padding-left: 20px;
+}
+.work .cards .card .container {
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  height: 60%;
+}
+.work .cards .card .container img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  border-radius: 20px 20px 0 0;
+}
+.work .cards .card .container::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px 20px 0 0;
+  opacity: 0.8;
+  background-image: linear-gradient(135deg, #2e56d8, #7c4444);
+}
+.work .cards .card .details {
+  padding: 20px 10px;
+}
+.work .cards .card .details h3 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 10px 0 15px 0;
+}
+.work .cards .card .details p {
+  color: #a0a0a0;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 400;
+}
+.work .cards .card:hover {
+  width: 410px;
+  height: 610px;
 }
 
 /*# sourceMappingURL=index.a4e33057.css.map */
