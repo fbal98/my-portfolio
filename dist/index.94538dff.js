@@ -462,7 +462,6 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _smoothScrollbar = require("smooth-scrollbar");
 var _smoothScrollbarDefault = parcelHelpers.interopDefault(_smoothScrollbar);
-console.log("fdfdf");
 _smoothScrollbarDefault.default.init(document.querySelector('#body-scrollBar'));
 
 },{"smooth-scrollbar":"jRlDB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jRlDB":[function(require,module,exports) {
