@@ -158,6 +158,7 @@ section .middleContainer h5 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  cursor: pointer;
 }
 
 .nav-bar .links a {
@@ -216,7 +217,7 @@ section .middleContainer h5 {
 }
 
 .two .two-content {
-  margin: 300px 0 auto 70px;
+  margin: 50px 0 auto 70px;
   opacity: 0.5;
   position: relative;
   right: 0;
@@ -225,8 +226,7 @@ section .middleContainer h5 {
 }
 
 .two .two-content h1 {
-  line-height: 1;
-  padding-bottom: 10px;
+  line-height: 0.1;
 }
 
 .two .two-content #I-am {
@@ -239,11 +239,12 @@ section .middleContainer h5 {
 
 .two .two-content #my-name {
   font-size: 100px;
-  padding-top: 15px;
 }
 
 .two .two-content #about-me {
-  width: 50%;
+  padding-top: 10px;
+  width: 70%;
+  font-size: 37px;
 }
 
 .two .two-content:hover {
@@ -495,13 +496,14 @@ section .middleContainer h5 {
   .two .two-content #about-me {
     width: 80%;
     font-size: 40px;
-    text-align: justify;
+    text-align: start;
   }
   .work {
     width: 100%;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
+    margin-bottom: 450px;
   }
   .work .cards {
     -ms-grid-columns: (1fr)[2];
@@ -632,12 +634,15 @@ section .middleContainer h5 {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-  }
-  .two .portrait-1 {
-    width: 100%;
+    overflow: hidden;
+    top: 0;
+    position: absolute;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
+  }
+  .two .portrait-1 {
+    width: 100%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -647,8 +652,6 @@ section .middleContainer h5 {
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
-    position: absolute;
-    top: 0;
     z-index: -1;
     opacity: 0.5;
   }
@@ -696,6 +699,10 @@ section .middleContainer h5 {
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
+    top: 500px;
+  }
+  .work #work {
+    opacity: 1;
   }
   .work .cards {
     -ms-grid-columns: (1fr)[1];

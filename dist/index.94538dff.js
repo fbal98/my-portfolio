@@ -502,10 +502,8 @@ if (window.innerWidth <= 768) {
     let observer = new IntersectionObserver((entries, observer)=>{
         entries.forEach((entry)=>{
             if (entry.isIntersecting) {
-                if (window.innerWidth <= 500 && entry.intersectionRatio < 1) {
-                    entry.target.classList.add('slide');
-                    console.log('sliiide');
-                } else entry.target.classList.add('active');
+                if (window.innerWidth <= 500 && entry.intersectionRatio < 1) entry.target.classList.add('slide');
+                else entry.target.classList.add('active');
             }
         });
     }, observerConfig);

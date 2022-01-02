@@ -62,7 +62,6 @@ if (window.innerWidth <= 768) {
             if (entry.isIntersecting) {
                 if (window.innerWidth <= 500 && entry.intersectionRatio < 1) {
                     entry.target.classList.add('slide')
-                    console.log('sliiide');
                 } else {
                     entry.target.classList.add('active')
                 }
