@@ -4,10 +4,10 @@
 */
 
 //Variables
-$accentColor : #2e56d8;
+$accentColor : #9CAAA9;
 $backgroundColor: #0f1212;
 $textColor : white;
-$hoverColor: rgb(200, 0, 0);
+$hoverColor: #BCCAC9;
 
 //To center items
 @mixin center {
@@ -30,24 +30,71 @@ $hoverColor: rgb(200, 0, 0);
   box-sizing: border-box;
   font-family: Dosis;
 }
+a {
+  text-decoration: none;
+  font-weight: 900;
+  color: white;  
+  &:hover {
+    color: $hoverColor;
+  }
+}
 body{
   background-color: $backgroundColor;
+  overflow-y: auto;
+  footer{
+    height: 300px;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    color: white;
+    background-color: $backgroundColor;
+    display: inline-flex;
+    justify-content: space-between;
+    flex-basis: 100%;
+    box-shadow: 0px 50px 60px $accentColor;
+    div{
+      
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 100px;
+      
 
+      .contacts{
+        text-align: right;
+      }
+    }
+  }
+  hr{
+    display: block;
+    bottom: 0;
+    position: relative;
+    width: 50%;
+    color: red;
+  }
+}
+html{
+  scroll-behavior: smooth;
 }
 //main container of the web page
 .container {
   height: 100vh;
-  scroll-behavior: smooth;
+  width: 100%;
+  top: 0;
+  
 }
 
 
 //this section represents a 100vh blocks of content 
 section {
   height: 100vh;
+  overflow: auto;
   display: flex;
+  position: relative;
   flex-direction: column;
   color: $textColor;
- 
   
   .middleContainer {
     @include center();
@@ -69,16 +116,19 @@ section {
 .nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: row;
-  padding: 45px 150px;
+  padding: 45px 300px;
   font-size: 25px;
+  word-wrap: break-word;
+  height: 100px;
+  line-height: 4px;
+  z-index: 9999;
   div {
     display: flex;
   }
   .links {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
   
     a {
       text-decoration: none;
@@ -86,7 +136,6 @@ section {
       font-weight: 900;
       margin-left: 20px;
       color: $accentColor;
-      text-shadow: 0px 1px, 1px 0px, 1px 1px;
       
       &:hover {
         color: $hoverColor;
@@ -95,25 +144,38 @@ section {
     
   }
 
-  .socials i {
+  .socials {
+    a{
+      text-decoration: none;
+      text-transform: uppercase;
+      color: white;
+    }
+    
+    i {
     padding: 10px;
-
+    
+    
     &:hover{
       color: $hoverColor;
     }
   }
   
 
-  
+}
 }
 
 
 .two {
   flex-direction: row;
-  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
   .portrait-1 {
     display: flex;
-    height: 100%;
+    opacity: 0.3;
+    height: 120vh;
+    object-fit: contain;
   }
 
   .two-content {
@@ -121,7 +183,6 @@ section {
     opacity: 0.5;
     position: relative;
     right: 0;
-    z-index: -1;
     transition: all 200ms ease-in-out;
     
     h1 {
@@ -142,7 +203,7 @@ section {
       width: 50%;
     }
     &:hover {
-      opacity: 100%;
+      opacity: 1;
     }
    
   }
@@ -293,6 +354,8 @@ section {
     opacity: 1;
   }
   }
+
+  
 }
 
 
@@ -415,12 +478,30 @@ section {
   body{
     max-width: 100%;
     overflow-x: hidden;
+    footer{
+      
+      
+      justify-content: flex-start;
+      align-items: flex-start ;
+      flex-direction: column;
+      height: max-content;
+     
+      position: relative;
+      overflow-y: hidden;
+      div{
+        padding: 0;
+        margin-bottom: 15px;
+        display: flex;
+        width: 100%;
+        height: max-content;
+      }
+    }
   }
   .nav-bar{
     align-items: center;
     display: flex;
     flex-direction: column;
-    
+    z-index: 999;
     div{
       font-size: 20px;
       width: 100%;
@@ -429,7 +510,9 @@ section {
       align-items: center;
       margin-bottom: 15px;
       line-height: 1;
+      z-index: 999;
       
+
     }
     .links{
       font-size: 20px;
@@ -457,20 +540,20 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: max-content;
     
     .portrait-1{
       width: 100%;
       height: max-content;
       justify-content: center;
      img{
+      
       height: 100%;
-      width: 100%px;
+      width: 100%;
       object-fit: cover;
       position: absolute;
       top: 0;
       z-index: -1;
-      opacity: 0.2;
+      opacity: 0.5;
      }
      
     }
@@ -503,6 +586,7 @@ section {
       #about-me {
         width: 100%;
         font-size: 20px;
+        font-weight: 500;
         
       }
      
@@ -518,10 +602,15 @@ section {
     place-items: center center;
     margin-top: 100px;
     width: 100%;
+    overflow: hidden;
+    
     .card{
+      opacity: 1;
       height: 600px;
       width: 100%;
-
+      overflow: hidden;
+      position: relative;
+      transition: transform 300ms ease-in-out;
       .details{
         
        .description{
@@ -541,7 +630,25 @@ section {
         }
       }
       }
+      &:nth-child(odd){
+        transform: translateX(100%);
+      }
+      &:nth-child(even){
+        transform: translateX(-100%);
+      }
+    }
+    .slide{
+      &:nth-child(odd){
+        transform: translateX(0);
+        
+      }
+      &:nth-child(even){
+        transform: translateX(0);
+        
+      }
     }
   }
+  
 }
+
 }

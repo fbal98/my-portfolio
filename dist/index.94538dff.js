@@ -462,9 +462,65 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _smoothScrollbar = require("smooth-scrollbar");
 var _smoothScrollbarDefault = parcelHelpers.interopDefault(_smoothScrollbar);
-_smoothScrollbarDefault.default.init(document.querySelector('#body-scrollBar'));
+var _scrollSnap = require("scroll-snap");
+var _scrollSnapDefault = parcelHelpers.interopDefault(_scrollSnap);
+let body = document.querySelector('body');
+let s = _smoothScrollbarDefault.default.init(body);
+let two = document.getElementById('two');
+let snapped = false;
+s.addListener(()=>{
+    reveal();
+    observer.observe(two);
+});
+let observerConfig = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+};
+let observer = new IntersectionObserver((entries, observer)=>{
+    if (entries[0].isIntersecting && entries[0].intersectionRatio != 1) s.scrollIntoView(two);
+}, observerConfig);
+function reveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach((element)=>{
+        if (s.isVisible(element)) element.classList.add('active');
+    });
+}
+let btn = document.getElementById('goToWork');
+btn.addEventListener('click', ()=>{
+    let workArea = document.getElementById('work');
+    s.scrollTo(0, workArea.getBoundingClientRect().top, 1000, 'easeInSine');
+});
+//for tablet & mobile view only
+if (window.innerWidth <= 768) {
+    s.destroy();
+    let observerConfig = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0
+    };
+    let observer = new IntersectionObserver((entries, observer)=>{
+        entries.forEach((entry)=>{
+            if (entry.isIntersecting) {
+                if (window.innerWidth <= 500 && entry.intersectionRatio < 1) {
+                    entry.target.classList.add('slide');
+                    console.log('sliiide');
+                } else entry.target.classList.add('active');
+            }
+        });
+    }, observerConfig);
+    const slides = document.querySelectorAll('.reveal');
+    slides.forEach((slide)=>{
+        observer.observe(slide);
+    });
+    let btn = document.getElementById('goToWork');
+    btn.addEventListener('click', ()=>{
+        let workArea = document.getElementById('work');
+        btn.href = '#work';
+    });
+}
 
-},{"smooth-scrollbar":"jRlDB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jRlDB":[function(require,module,exports) {
+},{"smooth-scrollbar":"jRlDB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","scroll-snap":"fkImz"}],"jRlDB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ScrollbarPlugin", ()=>_plugin.ScrollbarPlugin
@@ -562,7 +618,7 @@ var _style = require("./style");
      */ SmoothScrollbar.detachStyle = function() {
         return _style.detachStyle();
     };
-    SmoothScrollbar.version = "8.7.1";
+    SmoothScrollbar.version = "8.7.2";
     SmoothScrollbar.ScrollbarPlugin = _plugin.ScrollbarPlugin;
     return SmoothScrollbar;
 }(_scrollbar.Scrollbar);
@@ -4927,7 +4983,7 @@ var _tslib = require("tslib");
 var _getPosition = require("./get-position");
 var Tracker1 = function() {
     function Tracker(touch) {
-        this.velocityMultiplier = /Android/.test(navigator.userAgent) ? 2.5 : 1.5;
+        this.velocityMultiplier = /Android/.test(navigator.userAgent) ? window.devicePixelRatio : 1;
         this.updateTime = Date.now();
         this.delta = {
             x: 0,
@@ -5917,6 +5973,273 @@ function detachStyle() {
     styleEl.parentNode.removeChild(styleEl);
     isStyleAttached = false;
 }
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fkImz":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+var TIMEOUT_MIN = 50;
+var TIMEOUT_DEFAULT = 100;
+var DURATION_DEFAULT = 300;
+var THRESHOLD_DEFAULT = 0.2;
+var SNAPSTOP_DEFAULT = false;
+var EASING_DEFAULT = easeInOutQuad;
+var NOOP = function() {
+};
+function createScrollSnap(element1, settings, callback1) {
+    if (settings === void 0) settings = {
+    };
+    var onAnimationEnd = typeof callback1 === 'function' ? callback1 : NOOP;
+    var listenerElement;
+    var target1;
+    var animating = false;
+    var scrollHandlerTimer;
+    var scrollSpeedTimer;
+    var scrollStart;
+    var speedDeltaX;
+    var speedDeltaY;
+    var snapLengthUnit;
+    var lastScrollValue = {
+        x: 0,
+        y: 0
+    };
+    var animationFrame;
+    var snapDestinationX = settings.snapDestinationX, snapDestinationY = settings.snapDestinationY;
+    if (snapDestinationX && typeof snapDestinationX !== 'string' && typeof snapDestinationX !== 'number') throw new Error("Settings property 'snapDestinationX' is not valid, expected STRING or NUMBER but found " + (typeof snapDestinationX).toUpperCase());
+    if (snapDestinationY && typeof snapDestinationY !== 'string' && typeof snapDestinationY !== 'number') throw new Error("Settings property 'snapDestinationY' is not valid, expected STRING or NUMBER but found " + (typeof snapDestinationY).toUpperCase());
+    if (settings.timeout && (isNaN(settings.timeout) || typeof settings.timeout === 'boolean')) throw new Error("Optional settings property 'timeout' is not valid, expected NUMBER but found " + (typeof settings.timeout).toUpperCase());
+    // any value less then TIMEOUT_MIN may cause weird bahaviour on some devices (especially on mobile with momentum scrolling)
+    var timeout = settings.timeout && settings.timeout >= TIMEOUT_MIN ? settings.timeout : TIMEOUT_DEFAULT;
+    if (settings.duration && (isNaN(settings.duration) || typeof settings.duration === 'boolean')) throw new Error("Optional settings property 'duration' is not valid, expected NUMBER but found " + (typeof settings.duration).toUpperCase());
+    var duration = settings.duration || DURATION_DEFAULT;
+    if (settings.threshold && (isNaN(settings.threshold) || typeof settings.threshold === 'boolean')) throw new Error("Optional settings property 'threshold' is not valid, expected NUMBER but found " + (typeof settings.threshold).toUpperCase());
+    var threshold = settings.threshold || THRESHOLD_DEFAULT;
+    if (settings.easing && typeof settings.easing !== 'function') throw new Error("Optional settings property 'easing' is not valid, expected FUNCTION but found " + (typeof settings.easing).toUpperCase());
+    var easing = settings.easing || EASING_DEFAULT;
+    if (settings.snapStop && typeof settings.snapStop !== 'boolean') throw new Error("Optional settings property 'snapStop' is not valid, expected BOOLEAN but found " + (typeof settings.snapStop).toUpperCase());
+    var snapStop = settings.snapStop || SNAPSTOP_DEFAULT;
+    function checkScrollSpeed(value, axis) {
+        var clear = function() {
+            lastScrollValue[axis] = null;
+        };
+        var newValue = value;
+        var delta;
+        if (lastScrollValue[axis] !== null) delta = newValue - lastScrollValue[axis];
+        else delta = 0;
+        lastScrollValue[axis] = newValue;
+        scrollSpeedTimer && clearTimeout(scrollSpeedTimer);
+        scrollSpeedTimer = window.setTimeout(clear, 100);
+        return delta;
+    }
+    function bindElement(element) {
+        target1 = element;
+        listenerElement = element === document.documentElement ? window : element;
+        listenerElement.addEventListener('scroll', startAnimation, false);
+        snapLengthUnit = parseSnapCoordinatesValue(snapDestinationX, snapDestinationY);
+    }
+    function unbindElement() {
+        listenerElement.removeEventListener('scroll', startAnimation, false);
+    }
+    function startAnimation() {
+        speedDeltaX = checkScrollSpeed(target1.scrollLeft, 'x');
+        speedDeltaY = checkScrollSpeed(target1.scrollTop, 'y');
+        if (animating || speedDeltaX === 0 && speedDeltaY === 0) return;
+        handler(target1);
+    }
+    /**
+     * scroll handler
+     * this is the callback for scroll events.
+     */ function handler(target) {
+        // if currently animating, stop it. this prevents flickering.
+        if (animationFrame) clearTimeout(animationFrame);
+        // if a previous timeout exists, clear it.
+        if (scrollHandlerTimer) // we only want to call a timeout once after scrolling..
+        clearTimeout(scrollHandlerTimer);
+        else scrollStart = {
+            y: target.scrollTop,
+            x: target.scrollLeft
+        };
+        scrollHandlerTimer = window.setTimeout(animationHandler, timeout);
+    }
+    function animationHandler() {
+        // if we don't move a thing, we can ignore the timeout: if we did, there'd be another timeout added for scrollStart+1.
+        if (scrollStart.y === target1.scrollTop && scrollStart.x === target1.scrollLeft) // ignore timeout
+        return;
+        // detect direction of scroll. negative is up, positive is down.
+        var direction = {
+            y: Math.sign(speedDeltaY),
+            x: Math.sign(speedDeltaX)
+        };
+        // get the next snap-point to snap-to
+        var snapPoint = getNextSnapPoint(target1, direction);
+        listenerElement.removeEventListener('scroll', startAnimation, false);
+        animating = true;
+        // smoothly move to the snap point
+        smoothScroll(target1, snapPoint, function() {
+            // after moving to the snap point, rebind the scroll event handler
+            animating = false;
+            listenerElement.addEventListener('scroll', startAnimation, false);
+            onAnimationEnd();
+            // reset scrollStart
+            scrollStart = {
+                y: target1.scrollTop,
+                x: target1.scrollLeft
+            };
+        });
+    }
+    function getNextSnapPoint(target, direction) {
+        // get snap length
+        var snapLength = {
+            y: Math.round(getYSnapLength(target, snapLengthUnit.y)),
+            x: Math.round(getXSnapLength(target, snapLengthUnit.x))
+        };
+        var top = target.scrollTop;
+        var left = target.scrollLeft;
+        var startPoint = {
+            y: scrollStart.y / snapLength.y || 0,
+            x: scrollStart.x / snapLength.x || 0
+        };
+        var currentPoint = {
+            y: top / snapLength.y || 0,
+            x: left / snapLength.x || 0
+        };
+        var nextPoint = {
+            y: 0,
+            x: 0
+        };
+        /**
+         * Set target and bounds by direction,
+         * if threshold has not been reached, scroll back to currentPoint
+         **/ if (isAboveThreshold(direction.y, currentPoint.y)) {
+            if (snapStop) nextPoint.y = roundByDirection(-direction.y, startPoint.y + direction.y);
+            else nextPoint.y = roundByDirection(direction.y, currentPoint.y);
+        } else nextPoint.y = roundByDirection(direction.y * -1, currentPoint.y);
+        if (isAboveThreshold(direction.x, currentPoint.x)) {
+            if (snapStop) nextPoint.x = roundByDirection(-direction.x, startPoint.x + direction.x);
+            else nextPoint.x = roundByDirection(direction.x, currentPoint.x);
+        } else nextPoint.x = roundByDirection(direction.x * -1, currentPoint.x);
+        // DEBUG
+        // console.log('direction', direction)
+        // console.log('startPoint', startPoint)
+        // console.log('currentPoint', currentPoint)
+        // console.log('nextPoint', nextPoint)
+        // calculate where to scroll
+        var scrollTo = {
+            y: nextPoint.y * snapLength.y,
+            x: nextPoint.x * snapLength.x
+        };
+        // stay in bounds (minimum: 0, maxmimum: absolute height)
+        scrollTo.y = stayInBounds(0, target.scrollHeight, scrollTo.y);
+        scrollTo.x = stayInBounds(0, target.scrollWidth, scrollTo.x);
+        return scrollTo;
+    }
+    function isAboveThreshold(direction, value) {
+        return direction > 0 ? value % 1 > threshold : 1 - value % 1 > threshold;
+    }
+    function roundByDirection(direction, value) {
+        if (direction === -1) // when we go up, we floor the number to jump to the next snap-point in scroll direction
+        return Math.floor(value);
+        // go down, we ceil the number to jump to the next in view.
+        return Math.ceil(value);
+    }
+    function stayInBounds(min, max, destined) {
+        return Math.max(Math.min(destined, max), min);
+    }
+    function parseSnapCoordinatesValue(x, y) {
+        // regex to parse lengths
+        var regex = /([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*)(?:[eE][+-]?\d+)?)(px|%|vw|vh)/;
+        // defaults
+        var parsed = {
+            y: {
+                value: 0,
+                unit: 'px'
+            },
+            x: {
+                value: 0,
+                unit: 'px'
+            }
+        };
+        if (typeof y === 'number') parsed.y.value = y;
+        else {
+            var resultY = regex.exec(y);
+            if (resultY !== null) parsed.y = {
+                value: Number(resultY[1]),
+                unit: resultY[2]
+            };
+        }
+        if (typeof x === 'number') parsed.x.value = x;
+        else {
+            var resultX = regex.exec(x);
+            if (resultX !== null) parsed.x = {
+                value: Number(resultX[1]),
+                unit: resultX[2]
+            };
+        }
+        return parsed;
+    }
+    function getYSnapLength(obj, declaration) {
+        // get y snap length based on declaration unit
+        if (declaration.unit === 'vh') return Math.max(document.documentElement.clientHeight, window.innerHeight || 1) / 100 * declaration.value;
+        else if (declaration.unit === '%') return obj.clientHeight / 100 * declaration.value;
+        else return declaration.value;
+    }
+    function getXSnapLength(obj, declaration) {
+        // get x snap length based on declaration unit
+        if (declaration.unit === 'vw') return Math.max(document.documentElement.clientWidth, window.innerWidth || 1) / 100 * declaration.value;
+        else if (declaration.unit === '%') return obj.clientWidth / 100 * declaration.value;
+        else return declaration.value;
+    }
+    function isEdge(Coordinates) {
+        return Coordinates.x === 0 && speedDeltaY === 0 || Coordinates.y === 0 && speedDeltaX === 0;
+    }
+    function smoothScroll(obj, end1, callback) {
+        var position = function(start, end, elapsed, period) {
+            if (elapsed > period) return end;
+            return start + (end - start) * easing(elapsed / period);
+        };
+        var start1 = {
+            y: obj.scrollTop,
+            x: obj.scrollLeft
+        };
+        // get animation frame or a fallback
+        var requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || function(fn) {
+            return window.setTimeout(fn, 15);
+        };
+        var period1 = isEdge(start1) ? 1 : duration;
+        var startTime;
+        // setup the stepping function
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var elapsed = timestamp - startTime;
+            // change position on y-axis if result is a number.
+            if (!isNaN(end1.y)) obj.scrollTop = position(start1.y, end1.y, elapsed, period1);
+            // change position on x-axis if result is a number.
+            if (!isNaN(end1.x)) obj.scrollLeft = position(start1.x, end1.x, elapsed, period1);
+            // check if we are over due;
+            if (elapsed < period1) requestAnimationFrame(step);
+            else {
+                // is there a callback?
+                if (typeof callback === 'function') // stop execution and run the callback
+                return callback(end1);
+            }
+        }
+        animationFrame = requestAnimationFrame(step);
+    }
+    function bind() {
+        bindElement(element1);
+    }
+    function unbind() {
+        unbindElement();
+    }
+    bind();
+    return {
+        bind: bind,
+        unbind: unbind
+    };
+}
+exports.default = createScrollSnap;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["dHVtd","int3P"], "int3P", "parcelRequire82ef")
 

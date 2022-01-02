@@ -7,34 +7,32 @@
     <title>My portfolio</title>
     <link rel="stylesheet" href="./normalize.css">
     <link rel="stylesheet" href="./styles.css">
-
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <script type="module" src="main.js"></script>
-    <script src="reveal.js"></script>
-
 </head>
 
 <body id="body-scrollBar">
 
     <div class="container">
-        <section class="one">
-            <div class="nav-bar">
+        <section id="one" class="one">
+            <nav class="nav-bar">
                 <div class="name">
                     <h1>Firas Al Kharusi</h1>
                 </div>
                 <div class="links">
                     <h3><a href="./resume.pdf" target="_blank">Resume</a></h3>
-                    <h3><a href="#">Projects</a></h3>
+                    <h3><a id="goToWork">Projects</a></h3>
                 </div>
                 <div class="socials">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.linkedin.com/in/faras-al-kharusi-090414229/" target="_blank"><i
+                            class="fab fa-linkedin"></i>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/BinBader98"><i class="fab fa-twitter"></i></a>
+                    <a target="_blank" href="https://github.com/fbal98"><i class="fab fa-github"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/itz_firas98/"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
-            </div>
+            </nav>
             <div class="middleContainer">
                 <h1>About Me</h1>
                 <h5>&darr; Scroll Down &darr;</h5>
@@ -63,7 +61,7 @@
         </section>
         <section class="work">
             <div class="middleContainer">
-                <h1 class="reveal">My work</h1>
+                <h1 id="work" class="reveal">My work</h1>
             </div>
             <div class="cards">
 
@@ -102,7 +100,7 @@
                     <div class="icons">
                         <a href="https://github.com/fbal98/react-native-food-application"><i
                                 class="fab fa-github"></i></a>
-                        <a href="https://github.com/fbal98/react-native-food-application/blob/master/Capture1.PNG"><i
+                        <a href="https://github.com/fbal98/react-native-food-application/blob/master/Capture1.png"><i
                                 class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
@@ -219,7 +217,7 @@
                                 class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
-                        <img src="./assets/img/projects/hms/homeScreen.PNG" alt="">
+                        <img src="./assets/img/projects/hms/homeScreen.png" alt="">
 
                     </div>
                     <div class="details">
@@ -246,11 +244,11 @@
 
                     <div class="icons">
                         <a href="https://github.com/fbal98/Image-to-text-Python"><i class="fab fa-github"></i></a>
-                        <a href="https://github.com/fbal98/Image-to-text-Python/blob/main/img.png"><i
+                        <a href="url:https://github.com/fbal98/Image-to-text-Python/blob/main/img.png"><i
                                 class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
-                        <img src="./assets/img/projects/imgToText/1.PNG" alt="">
+                        <img src="./assets/img/projects/imgToText/1.png" alt="">
 
                     </div>
                     <div class="details">
@@ -276,7 +274,7 @@
                         <a href="#"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
-                        <img src="./assets/img/projects/mp3player/1.PNG" alt="">
+                        <img src="./assets/img/projects/mp3player/1.png" alt="">
 
                     </div>
                     <div class="details">
@@ -306,7 +304,7 @@
                                 class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
-                        <img src="./assets/img/projects/hashjoin/1.PNG" alt="">
+                        <img src="./assets/img/projects/hashjoin/1.png" alt="">
 
                     </div>
                     <div class="details">
@@ -332,7 +330,7 @@
                         <a href="https://vole.wtf/perfect-circle/"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
-                        <img src="./assets/img/projects/perfect-circle/Capture.PNG" alt="">
+                        <img src="./assets/img/projects/perfect-circle/Capture.png" alt="">
 
                     </div>
                     <div class="details">
@@ -360,7 +358,7 @@
                         <a href="#"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
-                        <img src="./assets/img/projects/rythem/1.PNG" alt="">
+                        <img src="./assets/img/projects/rythem/1.png" alt="">
 
                     </div>
                     <div class="details">
@@ -393,7 +391,7 @@
                         <a href="#"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
-                        <img src="./assets/img/projects/tictactoe_python/1.PNG" alt="">
+                        <img src="./assets/img/projects/tictactoe_python/1.png" alt="">
 
                     </div>
                     <div class="details">
@@ -415,12 +413,12 @@
 
                     <div class="icons">
                         <a href="https://github.com/fbal98/monopoly-in-Csharp"><i class="fab fa-github"></i></a>
-                        <a href="https://github.com/fbal98/monopoly-in-Csharp/blob/main/2.PNG"><i
+                        <a href="https://github.com/fbal98/monopoly-in-Csharp/blob/main/2.png"><i
                                 class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="container">
                         <img style="object-fit: fill; object-position: center;"
-                            src="./assets/img/projects/monopoly/2.PNG" alt="">
+                            src="./assets/img/projects/monopoly/2.png" alt="">
 
                     </div>
                     <div class="details">
@@ -445,10 +443,33 @@
             </div>
         </section>
 
-        <section>
-            <div class="middleContainer">d</div>
-        </section>
 
+        <footer id="footer">
+            <div>
+                <h1>Firas Al kharusi</h1>
+            </div>
+            <div class="contacts">
+                <h3>Firass269@gmail.com</h3>
+                <h3>(+968)99427232</h3>
+                <a href="https://github.com/fbal98" target="_blank">
+                    <h3>Github</h3>
+                </a>
+            </div>
+            <div class="social-media">
+                <a href="https://www.instagram.com/itz_firas98/" target="_blank">
+                    <h3>Instagram</h3>
+                </a>
+                <a href="https://twitter.com/BinBader98" target="_blank">
+                    <h3>Twitter</h3>
+                </a>
+                <a href="https://www.linkedin.com/in/faras-al-kharusi-090414229/" target="_blank">
+                    <h3>linkedin</h3>
+                </a>
+            </div>
+
+        </footer>
+
+        <script type="module" src="main.js"></script>
 </body>
 
 </html>
