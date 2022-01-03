@@ -103,6 +103,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             htmlElement.setAttribute('data-theme', "light");
             themeBtn.classList.remove('dark')
+
         }
     })
 })
