@@ -2,6 +2,22 @@
 * Author: Faras Al kharusi
 * Date Dec/24/2021
 */
+html {
+  --accentColor: #515c5b;
+  --backgroundColor: #0f12120c;
+  --textColor: rgb(66, 66, 66);
+  --hoverColor: #2d302f;
+  --cardsBackground: #ffffff;
+  --myImageOpacity: 1;
+}
+html[data-theme='dark'] {
+  --accentColor:#9CAAA9;
+  --backgroundColor: #0f1212;
+  --textColor: white;
+  --hoverColor: #BCCAC9;
+  --cardsBackground: #1c1b29;
+  --myImageOpacity: 0.5;
+}
 @font-face {
   font-family: Dosis;
   src: url(Dosis-VariableFont_wght.0546e2a0.ttf);
@@ -12,17 +28,19 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: Dosis;
+  -webkit-transition: background-color 230ms ease-in-out, color 230ms ease-in-out;
+  transition: background-color 230ms ease-in-out, color 230ms ease-in-out;
 }
 a {
   text-decoration: none;
   font-weight: 900;
-  color: white;
+  color: var(--textColor);
 }
 a:hover {
-  color: #BCCAC9;
+  color: var(--hoverColor);
 }
 body {
-  background-color: #0f1212;
+  background-color: var(--backgroundColor);
   overflow-y: auto;
 }
 body footer {
@@ -30,8 +48,8 @@ body footer {
   bottom: 0;
   position: relative;
   width: 100%;
-  color: white;
-  background-color: #0f1212;
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -40,8 +58,8 @@ body footer {
           justify-content: space-between;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
-  -webkit-box-shadow: 0px 50px 60px #9CAAA9;
-          box-shadow: 0px 50px 60px #9CAAA9;
+  -webkit-box-shadow: 0px 50px 60px var(--accentColor);
+          box-shadow: 0px 50px 60px var(--accentColor);
 }
 body footer div {
   width: 33%;
@@ -63,13 +81,6 @@ body footer div {
 body footer div .contacts {
   text-align: right;
 }
-body hr {
-  display: block;
-  bottom: 0;
-  position: relative;
-  width: 50%;
-  color: red;
-}
 html {
   scroll-behavior: smooth;
 }
@@ -89,7 +100,7 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: white;
+  color: var(--textColor);
 }
 section .middleContainer {
   display: -webkit-box;
@@ -133,6 +144,12 @@ section .middleContainer h5 {
   line-height: 4px;
   z-index: 9999;
 }
+.nav-bar #colorTheme {
+  color: #302706;
+}
+.nav-bar #colorTheme.dark {
+  color: #fad345;
+}
 .nav-bar div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -149,21 +166,21 @@ section .middleContainer h5 {
   text-transform: uppercase;
   font-weight: 900;
   margin-left: 20px;
-  color: #9CAAA9;
+  color: var(--accentColor);
 }
 .nav-bar .links a:hover {
-  color: #BCCAC9;
+  color: var(--hoverColor);
 }
 .nav-bar .socials a {
   text-decoration: none;
   text-transform: uppercase;
-  color: white;
+  color: var(--textColor);
 }
 .nav-bar .socials i {
   padding: 10px;
 }
 .nav-bar .socials i:hover {
-  color: #BCCAC9;
+  color: var(--hoverColor);
 }
 .two {
   -webkit-box-orient: horizontal;
@@ -187,7 +204,7 @@ section .middleContainer h5 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  opacity: 0.3;
+  opacity: var(--myImageOpacity);
   height: 120vh;
   -o-object-fit: contain;
      object-fit: contain;
@@ -257,7 +274,7 @@ section .middleContainer h5 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #1c1b29;
+  background: var(--cardsBackground);
   border-radius: 20px;
   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
           box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
@@ -287,7 +304,7 @@ section .middleContainer h5 {
 }
 .work .cards .card .icons a {
   text-decoration: none;
-  color: white;
+  color: var(--textColor);
   opacity: 0.5;
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
@@ -329,7 +346,7 @@ section .middleContainer h5 {
   padding: 20px 10px;
 }
 .work .cards .card .details h3 {
-  color: #ffffff;
+  color: var(--textColor);
   font-weight: 600;
   font-size: 18px;
   margin: 10px 0 15px 0;
@@ -348,7 +365,7 @@ section .middleContainer h5 {
   word-wrap: break-word;
 }
 .work .cards .card .details p {
-  color: #a0a0a0;
+  color: var(--textColor);
   display: block;
   font-size: 15px;
   margin-right: 10px 10px;
@@ -374,13 +391,53 @@ section .middleContainer h5 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    font-size: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    align-items: center;
+    line-height: 1;
+  }
+  .nav-bar div {
+    height: 100%;
+  }
+  .nav-bar .name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .nav-bar .links {
     padding-right: 50px;
-    font-size: 35px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .nav-bar .socials {
     font-size: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .two {
     display: -webkit-box;
@@ -428,6 +485,7 @@ section .middleContainer h5 {
             align-items: center;
     margin: 0;
     padding-top: 15px;
+    opacity: 1;
   }
   .two .two-content h1 {
     line-height: 0;
@@ -447,6 +505,7 @@ section .middleContainer h5 {
     width: 80%;
     font-size: 40px;
     text-align: start;
+    opacity: 1;
   }
   .work {
     width: 100%;
@@ -537,6 +596,7 @@ section .middleContainer h5 {
         -ms-flex-direction: column;
             flex-direction: column;
     z-index: 999;
+    margin-top: 15px;
   }
   .nav-bar div {
     font-size: 20px;
@@ -597,12 +657,12 @@ section .middleContainer h5 {
             justify-content: center;
   }
   .two .portrait-1 img {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.1;
   }
   .two .two-content {
     display: block;
@@ -648,7 +708,7 @@ section .middleContainer h5 {
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
-    top: 500px;
+    top: 600px;
   }
   .work #work {
     opacity: 1;

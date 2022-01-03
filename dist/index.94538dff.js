@@ -517,6 +517,20 @@ if (window.innerWidth <= 768) {
         btn.href = '#work';
     });
 }
+window.addEventListener('DOMContentLoaded', ()=>{
+    //handle change of color theme
+    let themeBtn = document.getElementById('colorTheme');
+    themeBtn.addEventListener('click', ()=>{
+        let htmlElement = document.querySelector('html');
+        if (htmlElement.getAttribute('data-theme') === "light") {
+            htmlElement.setAttribute('data-theme', "dark");
+            themeBtn.classList.add('dark');
+        } else {
+            htmlElement.setAttribute('data-theme', "light");
+            themeBtn.classList.remove('dark');
+        }
+    });
+});
 
 },{"smooth-scrollbar":"jRlDB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","scroll-snap":"fkImz"}],"jRlDB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

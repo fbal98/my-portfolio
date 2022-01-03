@@ -87,3 +87,22 @@ if (window.innerWidth <= 768) {
 
 
 }
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    //handle change of color theme
+    let themeBtn = document.getElementById('colorTheme');
+
+    themeBtn.addEventListener('click', () => {
+        let htmlElement = document.querySelector('html');
+
+        if (htmlElement.getAttribute('data-theme') === "light") {
+            htmlElement.setAttribute('data-theme', "dark");
+            themeBtn.classList.add('dark')
+        } else {
+            htmlElement.setAttribute('data-theme', "light");
+            themeBtn.classList.remove('dark')
+        }
+    })
+})
