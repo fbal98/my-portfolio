@@ -116,5 +116,5 @@ const preloader = document.querySelector('.preloader')
 
 window.addEventListener('load', () => {
     preloader.classList.add('preloader_finished');
-
+    preloader.style.display = 'hidden';
 })

@@ -535,6 +535,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 const preloader = document.querySelector('.preloader');
 window.addEventListener('load', ()=>{
     preloader.classList.add('preloader_finished');
+    preloader.style.display = 'hidden';
 });
 
 },{"smooth-scrollbar":"jRlDB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","scroll-snap":"fkImz"}],"jRlDB":[function(require,module,exports) {

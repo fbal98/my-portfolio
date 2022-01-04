@@ -107,12 +107,13 @@ html {
   height: 100vh;
   background-color: black;
   overflow-y: hidden;
-  -webkit-transition: opacity 3s ease-in-out;
-  transition: opacity 3s ease-in-out;
+  -webkit-transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
   opacity: 1;
 }
 .container .preloader.preloader_finished {
   opacity: 0;
+  pointer-events: none;
 }
 section {
   height: 100vh;
