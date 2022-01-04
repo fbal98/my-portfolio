@@ -107,3 +107,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 })
+
+
+
+//handle preloader
+
+const preloader = document.querySelector('.preloader')
+
+window.addEventListener('load', () => {
+    preloader.classList.add('preloader_finished');
+
+})

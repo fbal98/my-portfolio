@@ -531,6 +531,11 @@ window.addEventListener('DOMContentLoaded', ()=>{
         }
     });
 });
+//handle preloader
+const preloader = document.querySelector('.preloader');
+window.addEventListener('load', ()=>{
+    preloader.classList.add('preloader_finished');
+});
 
 },{"smooth-scrollbar":"jRlDB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","scroll-snap":"fkImz"}],"jRlDB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
