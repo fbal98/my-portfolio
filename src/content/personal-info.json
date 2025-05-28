@@ -1,0 +1,31 @@
+{
+  "personal": {
+    "name": "Firas Al Kharusi",
+    "title": "Full Stack Developer & IT Applications Specialist",
+    "email": "Firass269@gmail.com",
+    "phone": "(+968) 99427232",
+    "location": "Muscat, Oman",
+    "bio": "Experienced Full Stack Developer with a proven track record in delivering enterprise-grade solutions. Currently leading IT application delivery at Vodafone Oman, I specialize in building scalable web and mobile applications using modern technologies. With expertise spanning from React and Node.js to Go and Python, I bring a comprehensive approach to software development. My journey from the University of Michigan to working with major corporations has equipped me with both technical excellence and strong project management skills.",
+    "shortBio": "Full Stack Developer specializing in modern web and mobile applications. Currently leading IT solutions delivery at Vodafone Oman.",
+    "interests": ["Web3 & Blockchain", "Coffee Enthusiast", "Gaming", "Horseback Riding"],
+    "languages": ["Arabic (Native)", "English (Fluent)"],
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/firasb98/",
+      "github": "https://github.com/fbal98",
+      "twitter": "https://twitter.com/BinBader98",
+      "instagram": "https://www.instagram.com/itz_firas98/",
+      "website": "https://www.firasb.com"
+    },
+    "resumeLinks": {
+      "pdf": "/resume-2025.pdf",
+      "docx": "/resume-2025.docx"
+    },
+    "availability": "Open to opportunities",
+    "preferredRoles": [
+      "Senior Full Stack Developer",
+      "Technical Lead",
+      "Solutions Architect",
+      "Engineering Manager"
+    ]
+  }
+}

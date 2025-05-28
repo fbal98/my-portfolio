@@ -1,0 +1,173 @@
+{
+  "projects": [
+    {
+      "id": "trip-management",
+      "title": "Employees Trip Management Mobile App",
+      "featured": true,
+      "status": "completed",
+      "description": "Mobile application for a prominent oil and gas company to optimize employee routes and commutes between work camps.",
+      "longDescription": "Developed a comprehensive mobile solution that revolutionized employee transportation management for a major oil and gas company. The app enables employees to book trips and parking spaces for their daily commute, featuring real-time data updates on trip availability and parking options. This solution significantly improved operational efficiency and employee satisfaction.",
+      "technologies": ["React Native", "Express.js", "RESTful APIs", "Redux", "Redux Saga", "Git"],
+      "role": "Software Engineer (Frontend)",
+      "duration": "Nov 2022 - Feb 2023",
+      "achievements": [
+        "Delivered app on time, exceeding client expectations",
+        "Received positive feedback for improved efficiency and decision-making",
+        "Contributed to scalable and modular architecture"
+      ],
+      "links": {
+        "github": null,
+        "live": null
+      },
+      "category": "mobile",
+      "year": 2023
+    },
+    {
+      "id": "hse-system",
+      "title": "Health, Safety and Environment System",
+      "featured": true,
+      "status": "completed",
+      "description": "Enterprise-grade backend system for HSE mobile app with comprehensive incident reporting and safety inspection features.",
+      "longDescription": "Led backend development for a critical HSE (Health, Safety, and Environment) system serving a major industrial client. Built robust RESTful APIs using Java Jersey framework, implementing complex business logic for incident reporting, safety inspections, and compliance management. The system handles thousands of daily transactions while maintaining high availability and security standards.",
+      "technologies": ["Java", "Jersey", "Tomcat Server", "RESTful APIs", "MySQL", "Integration Systems"],
+      "role": "Backend Engineer",
+      "duration": "Sep 2022 - Present",
+      "achievements": [
+        "Successfully developed a robust backend system for the HSE mobile app",
+        "Ensured high-quality backend system through rigorous testing and debugging",
+        "Part of the maintenance team ensuring 99.9% uptime"
+      ],
+      "links": {
+        "github": null,
+        "live": null
+      },
+      "category": "backend",
+      "year": 2022
+    },
+    {
+      "id": "bring-a-flatbed",
+      "title": "Bring a Flatbed",
+      "featured": true,
+      "status": "under development",
+      "description": "An innovative auction platform for iOS & Android, designed for the logistics and transportation industry.",
+      "longDescription": "Leading development of a real-time auction application that connects flatbed truck owners with businesses needing transportation services. This senior design project showcases modern mobile development practices and real-time bidding functionality.",
+      "technologies": ["Node.js", "React Native", "MongoDB", "Firebase", "Socket.io"],
+      "links": {
+        "github": "https://github.com/fbal98/bring-a-flatbed",
+        "live": null
+      },
+      "category": "mobile",
+      "year": 2022
+    },
+    {
+      "id": "hotel-management-system",
+      "title": "Hotel Management System",
+      "featured": true,
+      "description": "Full-featured hotel management system built with Django, featuring reservation management, pricing, and admin controls.",
+      "longDescription": "Developed a comprehensive hotel management system using Django that handles all aspects of hotel operations. The system includes customer bookings, room management, pricing strategies, promotions, and detailed admin controls for CRUD operations on all entities.",
+      "technologies": ["Django (Python)", "JavaScript", "HTML", "CSS", "SQLite"],
+      "links": {
+        "github": "https://github.com/fbal98/hotel-management-system-Python-Django",
+        "live": "https://github.com/fbal98/hotel-management-system-Python-Django/tree/main/demo-screenshots"
+      },
+      "category": "web",
+      "year": 2021
+    },
+    {
+      "id": "food-app",
+      "title": "Restaurant Finder App",
+      "description": "Mobile app for iOS and Android that leverages the Yelp API to search for restaurants by location or name.",
+      "technologies": ["Node.js", "React Native", "Yelp API"],
+      "links": {
+        "github": "https://github.com/fbal98/react-native-food-application",
+        "demo": "https://github.com/fbal98/react-native-food-application/blob/master/Capture1.PNG"
+      },
+      "category": "mobile",
+      "year": 2021
+    },
+    {
+      "id": "tictactoe",
+      "title": "Tic Tac Toe",
+      "description": "Classic Tic Tac Toe game built with vanilla JavaScript, featuring a clean UI and smooth gameplay.",
+      "technologies": ["JavaScript", "HTML", "CSS"],
+      "links": {
+        "github": "https://github.com/fbal98/javascript-tictactoe",
+        "live": "/apps/tictactoe/index.html"
+      },
+      "category": "web",
+      "year": 2021
+    },
+    {
+      "id": "cinema-web-app",
+      "title": "Cinema Booking System",
+      "description": "PHP-based cinema management system with admin panel for movie management and user booking functionality.",
+      "technologies": ["PHP", "HTML", "CSS", "Bootstrap", "MySQL"],
+      "links": {
+        "github": "https://github.com/fbal98/Cinema-website-using-PHP",
+        "live": null
+      },
+      "category": "web",
+      "year": 2020
+    },
+    {
+      "id": "monopoly-game",
+      "title": "Monopoly Game",
+      "description": "Desktop implementation of the classic Monopoly board game, built as my first C# project for a client.",
+      "technologies": ["C#", "Windows Forms"],
+      "links": {
+        "github": "https://github.com/fbal98/monopoly-in-Csharp",
+        "demo": "https://github.com/fbal98/monopoly-in-Csharp/blob/main/2.png"
+      },
+      "category": "desktop",
+      "year": 2020
+    },
+    {
+      "id": "todo-list-app",
+      "title": "Todo List Mobile App",
+      "description": "React Native app demonstrating CRUD operations with a clean, intuitive interface.",
+      "technologies": ["React Native"],
+      "links": {
+        "github": "https://github.com/fbal98/react-native-todo-app",
+        "live": null
+      },
+      "category": "mobile",
+      "year": 2021
+    },
+    {
+      "id": "perfect-circle",
+      "title": "Perfect Circle Automation",
+      "description": "Python automation tool that draws near-perfect circles by controlling mouse movements.",
+      "technologies": ["Python", "PyAutoGUI"],
+      "links": {
+        "github": "https://github.com/fbal98/perfect-circle-Python",
+        "demo": "https://vole.wtf/perfect-circle/"
+      },
+      "category": "automation",
+      "year": 2021
+    },
+    {
+      "id": "image-to-text",
+      "title": "Image to Text Converter",
+      "description": "OCR application that extracts text from images using computer vision techniques.",
+      "technologies": ["Python", "OpenCV", "pytesseract"],
+      "links": {
+        "github": "https://github.com/fbal98/Image-to-text-Python",
+        "demo": null
+      },
+      "category": "cli",
+      "year": 2021
+    },
+    {
+      "id": "hash-join",
+      "title": "Hash Join Simulation",
+      "description": "Educational tool demonstrating database join operations using hash join algorithms.",
+      "technologies": ["Python"],
+      "links": {
+        "github": "https://github.com/fbal98/hash-Join-Python",
+        "live": null
+      },
+      "category": "cli",
+      "year": 2020
+    }
+  ]
+}

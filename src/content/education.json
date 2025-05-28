@@ -1,0 +1,27 @@
+{
+  "education": [
+    {
+      "id": "umich-bsc",
+      "institution": "The University of Michigan",
+      "location": "Michigan, USA",
+      "degree": "Bachelor of Science",
+      "field": "Computer Science and Information Systems",
+      "duration": "January 2018 - 2022",
+      "gpa": "3.1",
+      "courses": [
+        "Data Structures and Algorithms",
+        "Software Engineering",
+        "Discrete Structures I & II",
+        "Java Programming",
+        "Web Development",
+        "Computer Organization and Assembly Language",
+        "Database Management Systems",
+        "Computer Networking",
+        "Design Patterns and Software Architecture",
+        "Operating Systems",
+        "Introduction to Software Security",
+        "Mobile Apps Design & Implementation"
+      ]
+    }
+  ]
+}

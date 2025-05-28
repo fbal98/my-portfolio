@@ -1,0 +1,69 @@
+{
+  "experience": [
+    {
+      "id": "vodafone",
+      "company": "Vodafone",
+      "location": "Muscat, Oman",
+      "position": "IT Applications Specialist",
+      "duration": "September 2024 - Present",
+      "current": true,
+      "type": "full-time",
+      "description": "Leading IT solution delivery and multi-vendor management for Vodafone Oman's digital transformation initiatives.",
+      "responsibilities": [
+        "Lead end-to-end delivery for IT solutions within Vodafone Oman's IT Programme & Delivery, ensuring seamless implementation from requirements gathering to operational handover",
+        "Manage multi-vendor deliveries, driving timelines, cost efficiency, and quality across application and omnichannel platforms",
+        "Oversee Agile sprint execution, backlog health, delivery metrics (KPIs); ensure transparency, accountability, and alignment across cross-functional teams",
+        "Serve as the main interface for project delivery, facilitating interlock between Network, Commercial, Finance, and IT teams"
+      ],
+      "technologies": ["Agile", "Project Management", "Multi-vendor Management", "IT Solutions Delivery"]
+    },
+    {
+      "id": "muscat-clearing",
+      "company": "Muscat Clearing and Depository",
+      "location": "Muscat, Oman",
+      "position": "Software Engineer",
+      "duration": "May 2024 - September 2024",
+      "type": "contract",
+      "contractFrom": "PhazeRo",
+      "description": "Short-term contract focusing on critical system enhancements and security improvements.",
+      "responsibilities": [
+        "Enhanced the company's website by adding new features and performing maintenance to improve user experience",
+        "Built an API gateway wrapper around the existing API to facilitate access for external parties, enhancing integration capabilities",
+        "Resolved a critical TLS 1.0 vulnerability, preventing a costly system rewrite by implementing a single-line code fix to enforce TLS 1.2, ensuring zero downtime and significant cost savings"
+      ],
+      "technologies": ["API Development", "TLS Security", "Web Development", "System Integration"]
+    },
+    {
+      "id": "phazero",
+      "company": "PhazeRo",
+      "location": "Muscat, Oman",
+      "position": "Software Engineer",
+      "duration": "September 2022 - September 2024",
+      "type": "full-time",
+      "description": "Full-stack software engineer working on diverse projects with various technology stacks in an Agile environment.",
+      "responsibilities": [
+        "Utilized diverse tech stacks under the guidance of knowledgeable mentors",
+        "Conducted client visits and participated in remote meetings to ensure clear communication and understanding of project requirements",
+        "Practiced Agile methodology for efficient project delivery",
+        "Worked closely with multidisciplinary teams comprising designers, project managers, product managers, and software engineers with diverse levels of expertise",
+        "Developed software solutions using RESTful APIs and Remote Procedure Calls (RPC) via RabbitMQ for reliable communication between distributed systems",
+        "Demonstrated advanced proficiency in Postman for designing, testing, and debugging APIs"
+      ],
+      "technologies": ["RESTful APIs", "RabbitMQ", "Agile", "Postman", "Full-stack Development"]
+    },
+    {
+      "id": "umich-research",
+      "company": "The University of Michigan",
+      "location": "Michigan, USA",
+      "position": "Research Assistant",
+      "duration": "June 2021 - September 2021",
+      "type": "internship",
+      "description": "Academic research position supporting faculty-led research initiatives.",
+      "responsibilities": [
+        "Assisted in conducting research projects under the guidance of senior researchers and faculty members",
+        "Contributed to literature reviews, data collection, and analysis to support ongoing research initiatives"
+      ],
+      "technologies": ["Research", "Data Analysis", "Academic Writing"]
+    }
+  ]
+}

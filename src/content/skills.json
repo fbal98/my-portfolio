@@ -1,0 +1,62 @@
+{
+  "skills": {
+    "languages": [
+      { "name": "TypeScript", "level": 90, "category": "primary" },
+      { "name": "JavaScript", "level": 95, "category": "primary" },
+      { "name": "Python", "level": 85, "category": "primary" },
+      { "name": "Go", "level": 75, "category": "primary" },
+      { "name": "Java", "level": 80, "category": "secondary" },
+      { "name": "C++", "level": 70, "category": "secondary" },
+      { "name": "PHP", "level": 75, "category": "secondary" },
+      { "name": "C#", "level": 65, "category": "secondary" }
+    ],
+    "frontend": [
+      { "name": "React.js", "level": 90, "category": "framework" },
+      { "name": "React Native", "level": 85, "category": "framework" },
+      { "name": "Next.js", "level": 85, "category": "framework" },
+      { "name": "HTML5", "level": 95, "category": "core" },
+      { "name": "CSS3/SCSS", "level": 90, "category": "core" },
+      { "name": "Tailwind CSS", "level": 85, "category": "styling" },
+      { "name": "Redux", "level": 80, "category": "state" },
+      { "name": "Redux Saga", "level": 75, "category": "state" }
+    ],
+    "backend": [
+      { "name": "Node.js", "level": 90, "category": "runtime" },
+      { "name": "Express.js", "level": 85, "category": "framework" },
+      { "name": "Django", "level": 80, "category": "framework" },
+      { "name": "Jersey (Java)", "level": 75, "category": "framework" },
+      { "name": "RESTful APIs", "level": 90, "category": "architecture" },
+      { "name": "RabbitMQ", "level": 70, "category": "messaging" },
+      { "name": "Socket.io", "level": 75, "category": "realtime" }
+    ],
+    "databases": [
+      { "name": "PostgreSQL", "level": 85, "category": "sql" },
+      { "name": "MySQL", "level": 80, "category": "sql" },
+      { "name": "MongoDB", "level": 85, "category": "nosql" },
+      { "name": "SQLite", "level": 75, "category": "sql" },
+      { "name": "Firebase", "level": 80, "category": "cloud" }
+    ],
+    "tools": [
+      { "name": "Git/GitHub", "level": 95, "category": "vcs" },
+      { "name": "Docker", "level": 75, "category": "devops" },
+      { "name": "Postman", "level": 90, "category": "api" },
+      { "name": "Jira", "level": 85, "category": "pm" },
+      { "name": "Confluence", "level": 80, "category": "pm" },
+      { "name": "Swagger", "level": 85, "category": "api" },
+      { "name": "Zenhub", "level": 75, "category": "pm" },
+      { "name": "VS Code", "level": 95, "category": "ide" }
+    ],
+    "soft": [
+      "Strong Communication",
+      "Time Management",
+      "Problem Solving",
+      "Open for Feedback",
+      "Adaptability",
+      "Agile Methodologies",
+      "Task Effort Estimation",
+      "Team Collaboration",
+      "Client Relations",
+      "Project Leadership"
+    ]
+  }
+}
