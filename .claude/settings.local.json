@@ -25,7 +25,8 @@
       "mcp__brave__brave_web_search",
       "WebFetch(domain:www.awwwards.com)",
       "WebFetch(domain:webflow.com)",
-      "Bash(bunx tsc:*)"
+      "Bash(bunx tsc:*)",
+      "WebFetch(domain:gsap.com)"
     ],
     "deny": []
   }

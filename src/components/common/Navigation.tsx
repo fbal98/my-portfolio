@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, memo } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Download, User, FolderOpen, Mail, ChevronRight } from 'lucide-react'
+import { ThemeToggle } from './ThemeToggle'
 
 const navItems = [
   { name: 'About', href: '#about', icon: User },
@@ -172,6 +173,7 @@ export default function Navigation() {
                         </Link>
                       </motion.div>
                     ))}
+                    <ThemeToggle />
                   </motion.div>
                 )}
 
@@ -199,6 +201,7 @@ export default function Navigation() {
                         <item.icon className="w-4 h-4" />
                       </Link>
                     ))}
+                    <ThemeToggle />
                   </motion.div>
                 )}
 
@@ -224,6 +227,9 @@ export default function Navigation() {
                         aria-label={item.name}
                       />
                     ))}
+                    <div className="ml-2">
+                      <ThemeToggle />
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -241,10 +247,12 @@ export default function Navigation() {
               </motion.button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2"
+            {/* Mobile Theme Toggle and Menu */}
+            <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <motion.button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
@@ -273,7 +281,8 @@ export default function Navigation() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.button>
+              </motion.button>
+            </div>
           </div>
 
           {/* Bento Grid Dropdown */}

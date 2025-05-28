@@ -4,9 +4,13 @@
   --font-family-dosis: Dosis, sans-serif;
   --font-family-inter: Inter, system-ui, sans-serif;
   
-  /* Core Colors */
+  /* Core Colors - Light Mode */
   --color-background: oklch(0.99 0 0);
   --color-foreground: oklch(0.09 0 0);
+  
+  /* Core Colors - Dark Mode */
+  --color-background-dark: oklch(0.05 0 0);
+  --color-foreground-dark: oklch(0.98 0 0);
   
   /* Primary Purple-Blue Gradient */
   --color-primary-50: oklch(0.98 0.02 252);
@@ -29,12 +33,23 @@
   --color-muted: oklch(0.96 0.006 210);
   --color-muted-foreground: oklch(0.469 0.033 215.4);
   
+  /* Muted - Dark Mode */
+  --color-muted-dark: oklch(0.1 0.006 210);
+  --color-muted-foreground-dark: oklch(0.631 0.033 215.4);
+  
   /* Card */
   --color-card: oklch(0.99 0 0);
   --color-card-foreground: oklch(0.09 0 0);
   
+  /* Card - Dark Mode */
+  --color-card-dark: oklch(0.05 0 0);
+  --color-card-foreground-dark: oklch(0.98 0 0);
+  
   /* Border */
   --color-border: oklch(0.914 0.019 214.3);
+  
+  /* Border - Dark Mode */
+  --color-border-dark: oklch(0.186 0.019 214.3);
   
   /* Green for status */
   --color-green-400: oklch(0.792 0.209 151.711);
@@ -91,6 +106,22 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.6;
+}
+
+/* Dark mode styles */
+.dark body {
+  background-color: var(--color-background-dark);
+  color: var(--color-foreground-dark);
+}
+
+.dark {
+  --color-background: var(--color-background-dark);
+  --color-foreground: var(--color-foreground-dark);
+  --color-muted: var(--color-muted-dark);
+  --color-muted-foreground: var(--color-muted-foreground-dark);
+  --color-card: var(--color-card-dark);
+  --color-card-foreground: var(--color-card-foreground-dark);
+  --color-border: var(--color-border-dark);
 }
 
 /* Custom utility classes needed by components */

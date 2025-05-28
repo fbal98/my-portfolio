@@ -1,44 +1,69 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
 import { Mail, MapPin, FileText, ExternalLink } from 'lucide-react'
 import personalInfo from '@/content/personal-info.json'
 import Link from 'next/link'
+import { useGSAP } from '@/hooks/useGSAP'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
+import { MagneticButton } from '@/components/animations/MagneticButton'
+import { AnimatedText } from '@/components/animations/AnimatedText'
+import { gsap } from '@/animations/gsap-config'
 
 export default function About() {
   const { bio, location, email } = personalInfo.personal
+  const sectionRef = useRef<HTMLElement>(null)
+  const cardsRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    // Animate cards with stagger effect
+    if (cardsRef.current) {
+      gsap.from(cardsRef.current.children, {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: cardsRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+      })
+    }
+
+  }, [])
 
   return (
-    <section id="about" className="section-padding">
-      <div className="container-modern max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center space-y-12"
-        >
-          {/* Simple About Header */}
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground">
+    <section ref={sectionRef} id="about" className="section-padding relative overflow-hidden">
+      {/* Animated background element */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-pulse" />
+      
+      <div className="container-modern max-w-4xl relative z-10">
+        <div className="text-center space-y-12">
+          {/* Animated About Header */}
+          <ScrollReveal animation="fadeIn" className="space-y-6">
+            <AnimatedText
+              as="h2"
+              animation="splitWords"
+              className="text-4xl md:text-5xl font-light text-foreground"
+              stagger={0.1}
+            >
               About Me
-            </h2>
+            </AnimatedText>
             
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {bio}
             </p>
-          </div>
+          </ScrollReveal>
 
-          {/* Contact & Resume Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          {/* Contact & Resume Cards with GSAP */}
+          <div 
+            ref={cardsRef}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
+          >
             {/* Contact Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="p-6 border border-border rounded-lg space-y-4"
-            >
+            <div className="group p-6 border border-border rounded-lg space-y-4 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
               <h3 className="text-xl font-medium text-foreground">Get in Touch</h3>
               
               <div className="space-y-3">
@@ -58,53 +83,40 @@ export default function About() {
                 </div>
               </div>
               
-              <Link
+              <MagneticButton
+                as="a"
                 href={`mailto:${email}`}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                strength={0.15}
               >
                 <Mail className="w-4 h-4" />
                 Send Email
-              </Link>
-            </motion.div>
+              </MagneticButton>
+            </div>
 
             {/* Resume Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="p-6 border border-border rounded-lg space-y-4"
-            >
+            <div className="group p-6 border border-border rounded-lg space-y-4 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
               <h3 className="text-xl font-medium text-foreground">Resume</h3>
               
               <p className="text-muted-foreground text-sm">
                 Download my latest resume to see my full experience, education, and technical skills.
               </p>
               
-              <Link
+              <MagneticButton
+                as="a"
                 href="/resume-2025.pdf"
                 target="_blank"
                 className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors"
+                strength={0.15}
               >
                 <FileText className="w-4 h-4" />
                 Download PDF
                 <ExternalLink className="w-3 h-3" />
-              </Link>
-            </motion.div>
+              </MagneticButton>
+            </div>
           </div>
 
-          {/* Simple Availability Status */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-6 py-3 border border-green-500/20 bg-green-500/5 rounded-full"
-          >
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm text-green-600 font-medium">Available for opportunities</span>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
