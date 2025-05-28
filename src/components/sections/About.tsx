@@ -1,256 +1,108 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { MapPin, Mail, Calendar, Award, Coffee, Gamepad2, Bike, Globe2, Users, Code, Zap } from 'lucide-react'
+import { Mail, MapPin, FileText, ExternalLink } from 'lucide-react'
 import personalInfo from '@/content/personal-info.json'
 import Link from 'next/link'
 
 export default function About() {
-  const { bio, interests, languages, location, email } = personalInfo.personal
-
-  const stats = [
-    { label: 'Years Experience', value: '3+', icon: Calendar },
-    { label: 'Projects Completed', value: '15+', icon: Code },
-    { label: 'Technologies Mastered', value: '20+', icon: Zap },
-    { label: 'Client Satisfaction', value: '100%', icon: Award },
-  ]
-
-  const interestIcons = {
-    'Web3 & Blockchain': Globe2,
-    'Coffee Enthusiast': Coffee,
-    'Gaming': Gamepad2,
-    'Horseback Riding': Bike,
-  }
-
-  const languageFlags = {
-    'Arabic (Native)': '🇴🇲',
-    'English (Fluent)': '🇺🇸',
-  }
+  const { bio, location, email } = personalInfo.personal
 
   return (
-    <section id="about" className="section-padding bg-gradient-to-b from-muted/20 to-background">
-      <div className="container-modern">
+    <section id="about" className="section-padding">
+      <div className="container-modern max-w-4xl">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="text-center space-y-12"
         >
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 border border-primary/20 rounded-full mb-8"
-            >
-              <Users className="w-5 h-5 text-primary animate-pulse" />
-              <span className="text-sm font-semibold text-primary">Get to Know Me</span>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-fluid-4xl font-black mb-6"
-            >
-              <span className="gradient-text">About Me</span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-fluid-lg text-muted-foreground max-w-2xl mx-auto text-balance"
-            >
-              Passionate developer crafting digital experiences with modern technologies
-              and a deep commitment to excellence.
-            </motion.p>
+          {/* Simple About Header */}
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-light text-foreground">
+              About Me
+            </h2>
+            
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              {bio}
+            </p>
           </div>
 
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-            {/* Professional Image */}
+          {/* Contact & Resume Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {/* Contact Card */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
               viewport={{ once: true }}
-              className="relative"
+              className="p-6 border border-border rounded-lg space-y-4"
             >
-              <div className="relative group">
-                {/* Animated background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary rounded-3xl opacity-20 blur-3xl group-hover:opacity-30 transition-opacity duration-500" />
-                
-                {/* Image container */}
-                <div className="relative modern-card p-4 bg-gradient-to-br from-background to-muted/50">
-                  <Image
-                    src="/images/portraits/portrait.jpeg"
-                    alt="Firas Al Kharusi - Full Stack Developer"
-                    width={500}
-                    height={600}
-                    className="object-cover rounded-2xl w-full aspect-[4/5] shadow-xl"
-                    priority
-                  />
-                  
-                  {/* Floating info card */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    viewport={{ once: true }}
-                    className="absolute -bottom-6 -right-6 modern-card p-6 shadow-2xl max-w-xs"
+              <h3 className="text-xl font-medium text-foreground">Get in Touch</h3>
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <Mail className="w-5 h-5" />
+                  <Link 
+                    href={`mailto:${email}`}
+                    className="hover:text-primary-500 transition-colors"
                   >
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <MapPin className="w-5 h-5 text-primary" />
-                        <span className="text-sm font-medium">{location}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-primary" />
-                        <Link 
-                          href={`mailto:${email}`}
-                          className="text-sm font-medium hover:text-primary transition-colors"
-                        >
-                          {email}
-                        </Link>
-                      </div>
-                      <div className="status-available">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                        <span className="text-xs font-medium text-green-600 dark:text-green-400">
-                          Available for opportunities
-                        </span>
-                      </div>
-                    </div>
-                  </motion.div>
+                    {email}
+                  </Link>
+                </div>
+                
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <MapPin className="w-5 h-5" />
+                  <span>{location}</span>
                 </div>
               </div>
+              
+              <Link
+                href={`mailto:${email}`}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                Send Email
+              </Link>
             </motion.div>
 
-            {/* Content */}
+            {/* Resume Card */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="p-6 border border-border rounded-lg space-y-4"
             >
-              {/* Bio */}
-              <div className="space-y-6">
-                <h3 className="text-fluid-2xl font-bold">My Journey</h3>
-                <p className="text-fluid-base text-muted-foreground leading-relaxed">
-                  {bio}
-                </p>
-              </div>
-
-              {/* Interests */}
-              <div className="space-y-4">
-                <h4 className="text-fluid-lg font-semibold flex items-center gap-2">
-                  <Coffee className="w-5 h-5 text-primary" />
-                  Interests & Hobbies
-                </h4>
-                <div className="grid grid-cols-2 gap-3">
-                  {interests.map((interest) => {
-                    const Icon = interestIcons[interest as keyof typeof interestIcons] || Coffee
-                    return (
-                      <motion.div
-                        key={interest}
-                        className="modern-card p-4 group hover:bg-primary/5 transition-colors"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="flex items-center gap-3">
-                          <Icon className="w-5 h-5 text-primary group-hover:animate-pulse" />
-                          <span className="text-sm font-medium">{interest}</span>
-                        </div>
-                      </motion.div>
-                    )
-                  })}
-                </div>
-              </div>
-
-              {/* Languages */}
-              <div className="space-y-4">
-                <h4 className="text-fluid-lg font-semibold flex items-center gap-2">
-                  <Globe2 className="w-5 h-5 text-primary" />
-                  Languages
-                </h4>
-                <div className="flex flex-wrap gap-3">
-                  {languages.map((language) => {
-                    const flag = languageFlags[language as keyof typeof languageFlags] || '🌍'
-                    return (
-                      <motion.div
-                        key={language}
-                        className="modern-card px-4 py-3 group hover:bg-primary/5 transition-colors"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="text-lg">{flag}</span>
-                          <span className="text-sm font-medium">{language}</span>
-                        </div>
-                      </motion.div>
-                    )
-                  })}
-                </div>
-              </div>
+              <h3 className="text-xl font-medium text-foreground">Resume</h3>
+              
+              <p className="text-muted-foreground text-sm">
+                Download my latest resume to see my full experience, education, and technical skills.
+              </p>
+              
+              <Link
+                href="/resume-2025.pdf"
+                target="_blank"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors"
+              >
+                <FileText className="w-4 h-4" />
+                Download PDF
+                <ExternalLink className="w-3 h-3" />
+              </Link>
             </motion.div>
           </div>
 
-          {/* Stats Section */}
+          {/* Simple Availability Status */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+            className="inline-flex items-center gap-3 px-6 py-3 border border-green-500/20 bg-green-500/5 rounded-full"
           >
-            {stats.map(({ label, value, icon: Icon }, index) => (
-              <motion.div
-                key={label}
-                className="modern-card p-6 text-center group hover:shadow-glow transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Icon className="w-8 h-8 text-primary mx-auto mb-4 group-hover:animate-pulse" />
-                <div className="text-fluid-2xl font-bold text-foreground mb-2">{value}</div>
-                <div className="text-sm text-muted-foreground font-medium">{label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <div className="modern-card p-8 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5">
-              <h3 className="text-fluid-xl font-bold mb-4">Let&apos;s Work Together</h3>
-              <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                Ready to bring your ideas to life? Let&apos;s discuss how we can create something amazing together.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="#contact" className="btn-primary group">
-                  <Mail className="w-5 h-5 group-hover:animate-bounce" />
-                  <span>Get In Touch</span>
-                </Link>
-                <Link href="/resume-2025.pdf" target="_blank" className="btn-secondary group">
-                  <Award className="w-5 h-5 group-hover:animate-pulse" />
-                  <span>View Resume</span>
-                </Link>
-              </div>
-            </div>
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span className="text-sm text-green-600 font-medium">Available for opportunities</span>
           </motion.div>
         </motion.div>
       </div>

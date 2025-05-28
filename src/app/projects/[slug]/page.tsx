@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink, Github, Calendar, MapPin } from 'lucide-react'
+import { ExternalLink, Github, Calendar, MapPin } from 'lucide-react'
 import projectsData from '@/content/projects.json'
 import experienceData from '@/content/experience.json'
+import Breadcrumb from '@/components/common/Breadcrumb'
 
 interface ProjectPageProps {
   params: Promise<{
@@ -50,14 +51,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <div className="min-h-screen py-20 md:py-32">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Back Button */}
-        <Link
-          href="/#projects"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Projects
-        </Link>
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb 
+          items={[
+            { label: 'Projects', href: '/#projects' },
+            { label: project.title }
+          ]} 
+        />
 
         {/* Project Header */}
         <header className="mb-12">

@@ -8,8 +8,8 @@ export default function Experience() {
   const { experience } = experienceData
 
   return (
-    <section id="experience" className="py-20 md:py-32 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="section-padding bg-muted/30">
+      <div className="container-modern">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

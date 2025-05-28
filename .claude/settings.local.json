@@ -20,7 +20,12 @@
       "Bash(bun pm ls:*)",
       "mcp__context7__resolve-library-id",
       "mcp__context7__get-library-docs",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(FORCE_COLOR=0 bun run dev 2 >& 1)",
+      "mcp__brave__brave_web_search",
+      "WebFetch(domain:www.awwwards.com)",
+      "WebFetch(domain:webflow.com)",
+      "Bash(bunx tsc:*)"
     ],
     "deny": []
   }

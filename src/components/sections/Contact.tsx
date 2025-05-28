@@ -16,8 +16,8 @@ export default function Contact() {
   const { email, phone, socialLinks } = personalInfo.personal
 
   return (
-    <section id="contact" className="py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="section-padding">
+      <div className="container-modern">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -100,21 +100,63 @@ export default function Contact() {
               })}
             </motion.div>
 
-            {/* CTA Button */}
+            {/* Enhanced CTA Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mt-12"
+              className="text-center mt-16 space-y-8"
             >
-              <Link
-                href={`mailto:${email}`}
-                className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
-              >
-                <Mail className="w-5 h-5" />
-                Send Me an Email
-              </Link>
+              {/* Primary CTA */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href={`mailto:${email}`}
+                    className="btn-primary text-fluid-lg group shadow-glow-lg min-w-[200px]"
+                  >
+                    <Mail className="w-5 h-5 group-hover:animate-bounce" />
+                    <span>Send Me an Email</span>
+                  </Link>
+                </motion.div>
+                
+                <span className="text-muted-foreground text-sm font-medium hidden sm:block">or</span>
+                
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href="/resume-2025.pdf"
+                    target="_blank"
+                    className="btn-secondary text-fluid-lg group min-w-[200px]"
+                  >
+                    <span>View Resume</span>
+                  </Link>
+                </motion.div>
+              </div>
+
+              {/* Secondary CTAs */}
+              <div className="flex flex-wrap justify-center gap-3 pt-4">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href={socialLinks.linkedin}
+                    target="_blank"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground/80 border border-border rounded-lg hover:border-primary/50 hover:text-primary transition-all"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    Connect on LinkedIn
+                  </Link>
+                </motion.div>
+                
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href={socialLinks.github}
+                    target="_blank"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground/80 border border-border rounded-lg hover:border-primary/50 hover:text-primary transition-all"
+                  >
+                    <Github className="w-4 h-4" />
+                    View GitHub
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </motion.div>
