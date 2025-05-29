@@ -1,6 +1,7 @@
 [build]
   command = "npm install -g bun && bun install && bun run build"
   publish = "out"
+  base = "."
 
 [build.environment]
   NODE_VERSION = "18"
