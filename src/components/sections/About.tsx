@@ -18,16 +18,24 @@ export default function About() {
   useGSAP(() => {
     // Animate cards with stagger effect
     if (cardsRef.current) {
-      gsap.from(cardsRef.current.children, {
+      // First, ensure cards are visible
+      const cards = cardsRef.current.children
+      gsap.set(cards, { opacity: 1, y: 0 })
+      
+      // Then animate them
+      gsap.from(cards, {
         y: 60,
         opacity: 0,
         duration: 0.8,
         stagger: 0.2,
         ease: 'power3.out',
+        immediateRender: false,
         scrollTrigger: {
           trigger: cardsRef.current,
           start: 'top 80%',
+          end: 'bottom 20%',
           toggleActions: 'play none none reverse',
+          markers: false, // Set to true to debug
         },
       })
     }
@@ -42,20 +50,15 @@ export default function About() {
       <div className="container-modern max-w-4xl relative z-10">
         <div className="text-center space-y-12">
           {/* Animated About Header */}
-          <ScrollReveal animation="fadeIn" className="space-y-6">
-            <AnimatedText
-              as="h2"
-              animation="splitWords"
-              className="text-4xl md:text-5xl font-light text-foreground"
-              stagger={0.1}
-            >
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-light text-foreground">
               About Me
-            </AnimatedText>
+            </h2>
             
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {bio}
             </p>
-          </ScrollReveal>
+          </div>
 
           {/* Contact & Resume Cards with GSAP */}
           <div 
@@ -83,15 +86,13 @@ export default function About() {
                 </div>
               </div>
               
-              <MagneticButton
-                as="a"
+              <a
                 href={`mailto:${email}`}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
-                strength={0.15}
               >
                 <Mail className="w-4 h-4" />
                 Send Email
-              </MagneticButton>
+              </a>
             </div>
 
             {/* Resume Card */}
@@ -102,17 +103,15 @@ export default function About() {
                 Download my latest resume to see my full experience, education, and technical skills.
               </p>
               
-              <MagneticButton
-                as="a"
+              <a
                 href="/resume-2025.pdf"
                 target="_blank"
                 className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors"
-                strength={0.15}
               >
                 <FileText className="w-4 h-4" />
                 Download PDF
                 <ExternalLink className="w-3 h-3" />
-              </MagneticButton>
+              </a>
             </div>
           </div>
 

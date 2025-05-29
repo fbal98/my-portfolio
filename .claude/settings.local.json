@@ -29,5 +29,6 @@
       "WebFetch(domain:gsap.com)"
     ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": false
 }
