@@ -128,13 +128,13 @@ export default function Hero() {
 
             <div ref={roleRef} className="space-y-4">
               <p className="text-xl md:text-2xl text-muted-foreground font-light">
-                Full Stack Developer & IT Specialist
+                Full Stack Developer & IT Applications Specialist
               </p>
               
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Building digital solutions at{' '}
+                Leading end-to-end IT solutions delivery at{' '}
                 <span className="text-primary-500 font-medium">Vodafone Oman</span>
-                {' '}with expertise in React, Node.js, Python, and cloud technologies.
+                {' '}with expertise in React, Node.js, Go, Python, and cloud technologies.
               </p>
             </div>
           </div>

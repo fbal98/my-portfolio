@@ -5,8 +5,8 @@
     "email": "Firass269@gmail.com",
     "phone": "(+968) 99427232",
     "location": "Muscat, Oman",
-    "bio": "Experienced Full Stack Developer with a proven track record in delivering enterprise-grade solutions. Currently leading IT application delivery at Vodafone Oman, I specialize in building scalable web and mobile applications using modern technologies. With expertise spanning from React and Node.js to Go and Python, I bring a comprehensive approach to software development. My journey from the University of Michigan to working with major corporations has equipped me with both technical excellence and strong project management skills.",
-    "shortBio": "Full Stack Developer specializing in modern web and mobile applications. Currently leading IT solutions delivery at Vodafone Oman.",
+    "bio": "I'm an IT Applications Specialist with a passion for building robust, scalable solutions that drive business value. Currently at Vodafone Oman, I lead the end-to-end delivery of enterprise IT solutions, managing multi-vendor environments and ensuring seamless implementation from conception to production. My journey from the University of Michigan to working with major corporations has equipped me with both technical excellence and strong project management skills.",
+    "shortBio": "Leading end-to-end IT solutions delivery at Vodafone Oman. Transforming ideas into scalable applications with expertise in React, Node.js, Go, Python, and cloud technologies.",
     "interests": ["Web3 & Blockchain", "Coffee Enthusiast", "Gaming", "Horseback Riding"],
     "languages": ["Arabic (Native)", "English (Fluent)"],
     "socialLinks": {
@@ -26,6 +26,16 @@
       "Technical Lead",
       "Solutions Architect",
       "Engineering Manager"
+    ],
+    "metrics": {
+      "projectsImplemented": 8,
+      "projectsManaged": 3,
+      "scrumTeamsManaging": 2
+    },
+    "highlights": [
+      "Saved millions by implementing critical TLS 1.2 security fix",
+      "Leading IT Programme & Delivery for Oman's newest network operator",
+      "Managing 2 Scrum teams across multi-vendor environments"
     ]
   }
 }

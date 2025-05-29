@@ -17,7 +17,6 @@ const navItems = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const [showBentoGrid, setShowBentoGrid] = useState(false)
@@ -27,7 +26,6 @@ export default function Navigation() {
   const navRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
-  const navItemsRef = useRef<HTMLDivElement>(null)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const bentoGridRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
@@ -124,7 +122,6 @@ export default function Navigation() {
           const progress = (currentScrollY / maxScroll) * 100
           
           setScrolled(currentScrollY > 50)
-          setScrollProgress(progress)
           
           // Update progress bar
           if (progressBarRef.current) {

@@ -22,6 +22,9 @@ export default function Projects() {
     const imageMap: Record<string, string> = {
       'hotel-management-system': '/images/projects/hms/homeScreen.PNG',
       'bring-a-flatbed': '/images/projects/bafb/1.jpeg',
+      'trip-management': '/images/projects/project1.jpg',
+      'hse-system': '/images/projects/project1.jpg',
+      'critical-security-fix': '/images/projects/project1.jpg',
       'cinema-web-app': '/images/projects/cinema/1.png',
       'food-app': '/images/projects/food/1.png',
       'tictactoe': '/images/projects/tictactoe/screenshot.png',
@@ -29,9 +32,7 @@ export default function Projects() {
       'todo-list-app': '/images/projects/todos/1.png',
       'perfect-circle': '/images/projects/perfect-circle/Capture.PNG',
       'image-to-text': '/images/projects/imgToText/1.PNG',
-      'hash-join': '/images/projects/hashjoin/1.PNG',
-      'mp3player': '/images/projects/mp3player/1.PNG',
-      'rythem': '/images/projects/rythem/1.PNG'
+      'hash-join': '/images/projects/hashjoin/1.PNG'
     }
     return imageMap[projectId] || '/images/projects/project1.jpg'
   }
