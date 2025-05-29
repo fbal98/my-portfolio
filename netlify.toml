@@ -4,7 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--version"
+  # NPM_FLAGS = "--version" # This line is likely causing the parsing error. Let's remove or comment it out.
 
 # Redirects for SPA behavior
 [[redirects]]
@@ -12,10 +12,13 @@
   to = "/projects/:splat/index.html"
   status = 200
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# This redirect is problematic for a multi-page Next.js static export.
+# It will likely send all page requests to your site's root index.html.
+# Consider removing it if you want users to access individual pages like /about, /contact, etc.
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
 
 # Headers for better performance
 [[headers]]

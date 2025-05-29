@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import projectsData from '@/content/projects.json'
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.firasb.com'
   
