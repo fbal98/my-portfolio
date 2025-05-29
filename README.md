@@ -4,22 +4,22 @@ A modern, minimalist portfolio website built with Next.js 15, TypeScript, and Ta
 
 ## 🚀 Features
 
-- **Modern Tech Stack**: Next.js 15, TypeScript, Tailwind CSS 4, Framer Motion
+- **Modern Tech Stack**: Next.js 15, TypeScript, Tailwind CSS 4, GSAP
 - **Progressive Reveal Navigation**: Navigation transforms from text → icons → dots based on scroll
 - **Bento Grid Menu**: Modern dropdown menu with varied tile sizes
 - **Minimalist Design**: Clean, content-focused layout with ample whitespace
-- **Performance Optimized**: 95+ Lighthouse scores with optimized animations
+- **Performance Optimized**: 95+ Lighthouse scores with 60fps GSAP animations
 - **Responsive Design**: Mobile-first approach with fluid typography
-- **Dark/Light Mode**: System-aware theme switching (removed manual toggle for cleaner UI)
+- **Dark/Light Mode**: Manual theme toggle with proper SSR support and persistence
 - **SEO Ready**: Meta tags, Open Graph, sitemap generation
-- **Smooth Animations**: Subtle Framer Motion animations throughout
+- **GSAP Animations**: Sophisticated magnetic buttons, scroll reveals, and smooth interactions
 
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with App Router
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) with @theme directive
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Animations**: [GSAP](https://gsap.com/) with ScrollTrigger
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Theme**: [next-themes](https://github.com/pacocoursey/next-themes)
 - **Package Manager**: [Bun](https://bun.sh/)
@@ -51,15 +51,23 @@ bun run dev
 │   ├── app/              # Next.js app router pages
 │   │   ├── page.tsx     # Main page (Hero → About → Projects)
 │   │   └── projects/    # Dynamic project detail pages
+│   ├── animations/       # GSAP animation configurations
+│   │   ├── gsap-config.ts        # GSAP setup and defaults
+│   │   └── animations.ts         # Reusable animation functions
 │   ├── components/       # React components
 │   │   ├── common/      # Layout components
 │   │   │   ├── Navigation.tsx    # Progressive reveal nav
+│   │   │   ├── ThemeToggle.tsx   # Light/dark mode toggle
 │   │   │   ├── Breadcrumb.tsx   # Project page breadcrumbs
 │   │   │   └── Footer.tsx       # Minimal footer
+│   │   ├── animations/  # GSAP-powered components
+│   │   │   ├── MagneticButton.tsx # Interactive magnetic buttons
+│   │   │   ├── ScrollReveal.tsx   # Scroll-triggered animations
+│   │   │   └── AnimatedText.tsx   # Text animation components
 │   │   ├── sections/    # Page sections (Hero, About, Projects)
 │   │   └── ui/          # Reusable UI components
 │   ├── content/         # JSON data files
-│   ├── hooks/           # Custom React hooks
+│   ├── hooks/           # Custom React hooks (GSAP integration)
 │   └── lib/             # Utility functions
 ├── public/              # Static assets
 │   ├── fonts/          # Dosis variable font
@@ -81,8 +89,9 @@ Edit the JSON files in `src/content/` to update:
 - **Tailwind CSS 4**: Configuration done via `@theme` directive in `globals.css`
 - **Color System**: Uses `oklch()` color space for better color accuracy
 - **Typography**: Fluid typography with light font weights throughout
-- **Minimal Palette**: Neutral grays + single blue accent color
+- **Minimal Palette**: Neutral grays + single champagne gold accent color (`oklch(0.68 0.15 75)`)
 - **No `tailwind.config.js`**: All configuration in CSS (Tailwind v4 approach)
+- **Theme Variables**: Light mode default with proper dark mode overrides
 
 ## 🚢 Deployment
 
@@ -134,6 +143,25 @@ This portfolio follows a **minimalist-first** approach:
 - **Projects**: Featured work in clean grid layout
 - Removed sections: Experience, Skills, separate Contact (integrated into About)
 
+## 🆕 Recent Updates (2025)
+
+### Theme System Overhaul
+- **Fixed Light/Dark Mode Toggle**: Resolved theme switching issues with proper CSS variable structure
+- **Improved Accessibility**: Enhanced button contrast and theme toggle visibility
+- **Next-themes Integration**: Migrated to `next-themes` for better SSR support
+- **Smooth Transitions**: Added 300ms transitions for seamless theme switching
+
+### Performance & Animation Improvements
+- **GSAP Migration**: Replaced Framer Motion with GSAP for better performance
+- **Magnetic Interactions**: Added sophisticated hover effects on buttons
+- **60fps Animations**: Optimized all animations for smooth 60fps performance
+- **Scroll Triggers**: Implemented scroll-based animations with proper cleanup
+
+### Design Refinements
+- **Champagne Gold Accent**: Updated color palette with luxury gold accent
+- **Better Contrast**: Improved text readability in both light and dark modes
+- **Refined Typography**: Enhanced font weight hierarchy for better visual impact
+
 ---
 
-Built with ❤️ using Next.js and Bun
+Built with ❤️ using Next.js, GSAP, and Bun

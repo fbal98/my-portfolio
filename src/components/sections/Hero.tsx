@@ -59,6 +59,7 @@ export default function Hero() {
         duration: 0.6,
         stagger: 0.1,
         ease: 'elastic.out(1, 0.5)',
+        clearProps: 'all', // Clear all inline styles after animation
       }, '-=0.3')
     }
 
@@ -142,7 +143,8 @@ export default function Hero() {
           {/* Animated CTA Section */}
           <div
             ref={ctaRef}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 opacity-100"
+            style={{ opacity: 1, transform: 'scale(1)' }}
           >
             <MagneticButton
               as="a"
@@ -151,7 +153,8 @@ export default function Hero() {
                 e.preventDefault()
                 scrollToAbout()
               }}
-              className="px-8 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium"
+              className="btn-luxury opacity-100"
+              style={{ display: 'inline-block', opacity: 1 }}
               strength={0.2}
             >
               Get in Touch
@@ -161,7 +164,8 @@ export default function Hero() {
               as="a"
               href="/resume-2025.pdf"
               target="_blank"
-              className="px-8 py-3 border border-border rounded-lg hover:bg-muted transition-colors font-medium"
+              className="px-8 py-3 border border-primary-500/30 rounded-full hover:bg-primary-500/10 hover:border-primary-500/50 transition-all duration-300 font-light tracking-wider uppercase text-sm text-primary-500 opacity-100"
+              style={{ display: 'inline-block', opacity: 1 }}
               strength={0.2}
             >
               View Resume

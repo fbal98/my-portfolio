@@ -146,7 +146,7 @@ export default function About() {
               
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                className="btn-luxury inline-flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />
                 Send Email

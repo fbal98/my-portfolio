@@ -4,52 +4,50 @@
   --font-family-dosis: Dosis, sans-serif;
   --font-family-inter: Inter, system-ui, sans-serif;
   
-  /* Core Colors - Light Mode */
-  --color-background: oklch(0.99 0 0);
-  --color-foreground: oklch(0.09 0 0);
+  /* Core Colors - Light Mode Default */
+  --color-background: oklch(0.99 0 0); /* Clean white */
+  --color-foreground: oklch(0.15 0 0); /* Dark text */
   
   /* Core Colors - Dark Mode */
-  --color-background-dark: oklch(0.05 0 0);
-  --color-foreground-dark: oklch(0.98 0 0);
+  --color-background-dark: oklch(0.06 0 0); /* Rich black #0F0F0F */
+  --color-foreground-dark: oklch(0.99 0.005 90); /* Pearl white #FDFDF8 */
   
-  /* Primary Purple-Blue Gradient */
-  --color-primary-50: oklch(0.98 0.02 252);
-  --color-primary-100: oklch(0.94 0.05 252);
-  --color-primary-200: oklch(0.88 0.1 252);
-  --color-primary-300: oklch(0.8 0.15 252);
-  --color-primary-400: oklch(0.7 0.2 252);
-  --color-primary-500: oklch(0.62 0.24 252);
-  --color-primary-600: oklch(0.55 0.22 252);
-  --color-primary-700: oklch(0.48 0.18 252);
-  --color-primary-800: oklch(0.4 0.14 252);
-  --color-primary-900: oklch(0.32 0.1 252);
-  --color-primary-950: oklch(0.2 0.06 252);
+  /* Primary Champagne Gold - Refined Luxury Palette */
+  --color-primary-50: oklch(0.96 0.04 75); /* Lightest champagne */
+  --color-primary-100: oklch(0.92 0.06 75);
+  --color-primary-200: oklch(0.86 0.08 75);
+  --color-primary-300: oklch(0.80 0.11 75);
+  --color-primary-400: oklch(0.74 0.13 75);
+  --color-primary-500: oklch(0.68 0.15 75); /* Champagne gold #D4AF37 */
+  --color-primary-600: oklch(0.62 0.13 75);
+  --color-primary-700: oklch(0.56 0.11 75);
+  --color-primary-800: oklch(0.48 0.09 75);
+  --color-primary-900: oklch(0.40 0.07 75);
+  --color-primary-950: oklch(0.32 0.05 75);
   
-  /* Secondary */
-  --color-secondary: oklch(0.96 0.006 210);
-  --color-secondary-foreground: oklch(0.049 0.038 222.2);
+  /* Secondary - Light Mode */
+  --color-secondary: oklch(0.95 0 0); /* Light gray */
+  --color-secondary-foreground: oklch(0.15 0 0); /* Dark text */
   
-  /* Muted */
-  --color-muted: oklch(0.96 0.006 210);
-  --color-muted-foreground: oklch(0.469 0.033 215.4);
+  /* Muted - Light Mode */
+  --color-muted: oklch(0.96 0 0); /* Very light gray */
+  --color-muted-foreground: oklch(0.45 0.01 90); /* Medium gray */
   
-  /* Muted - Dark Mode */
-  --color-muted-dark: oklch(0.1 0.006 210);
-  --color-muted-foreground-dark: oklch(0.631 0.033 215.4);
+  /* Card - Light Mode */
+  --color-card: oklch(0.98 0 0); /* Off-white */
+  --color-card-foreground: oklch(0.15 0 0); /* Dark text */
   
-  /* Card */
-  --color-card: oklch(0.99 0 0);
-  --color-card-foreground: oklch(0.09 0 0);
+  /* Border - Light Mode */
+  --color-border: oklch(0.90 0.01 75); /* Light gray with gold tint */
   
-  /* Card - Dark Mode */
-  --color-card-dark: oklch(0.05 0 0);
-  --color-card-foreground-dark: oklch(0.98 0 0);
-  
-  /* Border */
-  --color-border: oklch(0.914 0.019 214.3);
-  
-  /* Border - Dark Mode */
-  --color-border-dark: oklch(0.186 0.019 214.3);
+  /* Dark Mode Variants */
+  --color-secondary-dark: oklch(0.10 0 0); /* Charcoal #1A1A1A */
+  --color-secondary-foreground-dark: oklch(0.99 0.005 90);
+  --color-muted-dark: oklch(0.08 0 0); /* Deep charcoal */
+  --color-muted-foreground-dark: oklch(0.55 0.01 90); /* Silver gray */
+  --color-card-dark: oklch(0.09 0 0); /* Elevated charcoal */
+  --color-card-foreground-dark: oklch(0.99 0.005 90);
+  --color-border-dark: oklch(0.15 0.01 75); /* Subtle gold-tinted border */
   
   /* Green for status */
   --color-green-400: oklch(0.792 0.209 151.711);
@@ -77,17 +75,17 @@
   --spacing-40: 10rem;
 }
 
-/* Dark mode */
+/* Dark mode - Maintains VIP luxury theme */
 .dark {
-  --color-background: oklch(0.08 0.02 240);
-  --color-foreground: oklch(0.98 0 0);
-  --color-card: oklch(0.12 0.02 240);
-  --color-card-foreground: oklch(0.98 0 0);
-  --color-muted: oklch(0.16 0.02 240);
-  --color-muted-foreground: oklch(0.65 0.01 240);
-  --color-border: oklch(0.2 0.02 240);
-  --color-secondary: oklch(0.14 0.024 240);
-  --color-secondary-foreground: oklch(0.98 0 0);
+  --color-background: var(--color-background-dark); /* Rich black */
+  --color-foreground: var(--color-foreground-dark); /* Pearl white */
+  --color-secondary: var(--color-secondary-dark); /* Charcoal */
+  --color-secondary-foreground: var(--color-secondary-foreground-dark);
+  --color-muted: var(--color-muted-dark); /* Deep charcoal */
+  --color-muted-foreground: var(--color-muted-foreground-dark); /* Silver gray */
+  --color-card: var(--color-card-dark); /* Elevated charcoal */
+  --color-card-foreground: var(--color-card-foreground-dark);
+  --color-border: var(--color-border-dark); /* Gold-tinted border */
 }
 
 /* Import fonts */
@@ -100,29 +98,24 @@
   font-display: swap;
 }
 
-/* Body styling */
+/* Body styling - VIP Luxury */
 body {
   font-family: var(--font-family-inter);
   background-color: var(--color-background);
   color: var(--color-foreground);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(212,175,55,0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212,175,55,0.02) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(212,175,55,0.01) 0%, transparent 50%);
+  background-attachment: fixed;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark mode styles */
-.dark body {
-  background-color: var(--color-background-dark);
-  color: var(--color-foreground-dark);
-}
-
-.dark {
-  --color-background: var(--color-background-dark);
-  --color-foreground: var(--color-foreground-dark);
-  --color-muted: var(--color-muted-dark);
-  --color-muted-foreground: var(--color-muted-foreground-dark);
-  --color-card: var(--color-card-dark);
-  --color-card-foreground: var(--color-card-foreground-dark);
-  --color-border: var(--color-border-dark);
-}
 
 /* Custom utility classes needed by components */
 @layer utilities {
@@ -154,8 +147,55 @@ body {
   /* Background utilities */
   .bg-noise {
     background-image: 
-      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, rgba(218,165,32,0.05) 1px, transparent 0);
     background-size: 20px 20px;
+  }
+  
+  /* VIP Champagne Shimmer Effect */
+  .gold-shimmer {
+    background: linear-gradient(120deg, transparent 30%, rgba(212,175,55,0.15) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shimmer 4s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  /* Luxury hover states */
+  .luxury-hover {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .luxury-hover:hover {
+    box-shadow: 0 0 40px rgba(212,175,55,0.15), 0 0 80px rgba(212,175,55,0.05);
+    border-color: oklch(0.68 0.15 75);
+    transform: translateY(-2px);
+  }
+  
+  /* Premium glass effect */
+  .glass-luxury {
+    background: linear-gradient(135deg, rgba(15,15,15,0.8), rgba(26,26,26,0.4));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212,175,55,0.1);
+  }
+  
+  /* Elegant text spacing */
+  .text-luxury {
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  /* Premium card gradient */
+  .card-luxury {
+    background: linear-gradient(135deg, 
+      oklch(0.09 0 0) 0%, 
+      oklch(0.10 0 0) 50%, 
+      oklch(0.09 0 0) 100%);
+    border: 1px solid oklch(0.15 0.01 75);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,175,55,0.05);
   }
   
   /* Container */
@@ -359,6 +399,59 @@ body {
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
     animation: gradient-shift 4s ease infinite;
+  }
+  
+  /* VIP Button Styles */
+  .btn-luxury {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-500));
+    color: oklch(0.05 0 0); /* Very dark text for maximum contrast */
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 600; /* Slightly bolder for better readability */
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(212,175,55,0.2);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .btn-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .btn-luxury:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212,175,55,0.35);
+  }
+  
+  .btn-luxury:hover::before {
+    left: 100%;
+  }
+  
+  /* VIP Text Styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+  
+  /* VIP Links */
+  a {
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    color: var(--color-primary-500);
   }
   
   @keyframes gradient-shift {

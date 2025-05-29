@@ -35,7 +35,7 @@ This is a **modern minimal portfolio** website built with:
 
 **MINIMALIST FIRST**: This portfolio follows modern minimalist design principles:
 - **Ample whitespace** for visual breathing room
-- **Limited color palette** - neutral grays + single blue accent
+- **Limited color palette** - neutral grays + single champagne gold accent
 - **Clean typography** with light font weights and proper hierarchy
 - **Sophisticated animations** - GSAP-powered smooth interactions inspired by gsap.com
 - **Content-focused** - every element serves a clear purpose
@@ -86,19 +86,22 @@ The portfolio supports both light and dark modes:
 
 **Light Mode (Default)**:
 - Clean white background (`oklch(0.99 0 0)`)
-- Dark text for optimal readability
+- Dark text for optimal readability (`oklch(0.15 0 0)`)
 - Professional, clean appearance
+- Light gray surfaces for cards and sections
 
 **Dark Mode**:
-- Dark background (`oklch(0.05 0 0)`)
-- Light text for reduced eye strain
+- Rich black background (`oklch(0.06 0 0)`)
+- Pearl white text (`oklch(0.99 0.005 90)`)
+- Charcoal surfaces for elevated elements
 - Triggered via theme toggle in navigation
 
 **Theme Toggle**:
-- Available in all navigation states
-- Magnetic hover effect
-- Persistent localStorage preference
-- Smooth transitions between modes
+- Uses `next-themes` for proper SSR support
+- Available in all navigation states with magnetic hover effect
+- Persistent localStorage preference with hydration protection
+- Smooth transitions between modes with 300ms duration
+- Proper contrast (`text-foreground/60`) for accessibility
 
 ### Simplified Architecture
 
@@ -146,7 +149,7 @@ All content is JSON-based and type-safe:
 
 3. **Tailwind CSS 4 Only**: Never create a `tailwind.config.js` file. All configuration is in `globals.css` using `@theme` directive.
 
-4. **Limited Color Palette**: Stick to neutral grays + single blue accent (`primary-500`). Support both light and dark modes.
+4. **Limited Color Palette**: Stick to neutral grays + single champagne gold accent (`primary-500: oklch(0.68 0.15 75)`). Support both light and dark modes with proper contrast ratios.
 
 5. **Typography Hierarchy**: Use light font weights (`font-light`) for headings, maintain clear hierarchy without being heavy.
 
@@ -269,7 +272,7 @@ export default function Home() {
 - Use ample whitespace
 - Implement GSAP animations following established patterns
 - Focus on content hierarchy
-- Maintain single blue accent color
+- Maintain single champagne gold accent color
 - Use light font weights
 - Show only essential information
 - Test both light and dark modes
@@ -296,3 +299,23 @@ export default function Home() {
 3. **Project Showcase** - Curated featured work with engaging hover effects
 
 This minimalist approach with sophisticated GSAP animations ensures fast loading, clear messaging, better conversion rates, and a memorable user experience that reflects modern web design standards.
+
+## Recent Fixes & Improvements (2025)
+
+### Theme System Overhaul
+- **Fixed Light/Dark Mode Toggle**: Resolved issue where theme toggle only affected scrollbar
+- **Proper CSS Variable Structure**: Reorganized theme variables to have light mode as default with proper dark mode overrides
+- **Improved Button Contrast**: Enhanced "GET IN TOUCH" button contrast from `oklch(0.15 0 0)` to `oklch(0.05 0 0)` with increased font weight (500→600) for WCAG AA compliance
+- **Next-themes Integration**: Migrated from custom theme management to `next-themes` for proper SSR support and hydration protection
+
+### Color System Updates
+- **Light Mode Variables**: Default theme now properly uses light backgrounds and dark text
+- **Dark Mode Variables**: All dark mode variants properly defined with `-dark` suffix
+- **Seamless Transitions**: Added 300ms ease transitions for smooth theme switching
+- **Accessibility Improvements**: Enhanced theme toggle visibility with `bg-foreground/5` background and `text-foreground/60` icons
+
+### Technical Improvements
+- **Type Safety**: All theme-related code uses proper TypeScript interfaces
+- **Performance**: Theme switching now uses CSS variables efficiently without layout thrashing
+- **Hydration Protection**: Prevents SSR/client mismatches with proper mounting detection
+- **Consistent Naming**: All CSS variables follow consistent naming convention with proper semantic meanings
