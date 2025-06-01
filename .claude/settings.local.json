@@ -27,7 +27,8 @@
       "WebFetch(domain:webflow.com)",
       "Bash(bunx tsc:*)",
       "WebFetch(domain:gsap.com)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(bunx:*)"
     ],
     "deny": []
   },
