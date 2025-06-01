@@ -8,26 +8,17 @@ import { useGSAP } from '@/hooks/useGSAP'
 import { gsap } from '@/animations/gsap-config'
 
 export default function About() {
-  const { bio, location, email, metrics } = personalInfo.personal
+  const { bio, location, email } = personalInfo.personal
   const sectionRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
-  const metricsRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
     // Animate cards with stagger effect
     if (cardsRef.current) {
-      // First, ensure cards are visible
       const cards = cardsRef.current.children
-      gsap.set(cards, { opacity: 1, y: 0 })
       
-      // Then animate them
-      gsap.from(cards, {
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
-        immediateRender: false,
+      // Create a timeline for better control
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cardsRef.current,
           start: 'top 80%',
@@ -36,31 +27,24 @@ export default function About() {
           markers: false, // Set to true to debug
         },
       })
-    }
-
-    // Animate metrics with number counting effect
-    if (metricsRef.current && metrics) {
-      const counters = metricsRef.current.querySelectorAll('.metric-number')
       
-      counters.forEach((counter) => {
-        const duration = 2
-        
-        gsap.from(counter, {
-          textContent: 0,
-          duration: duration,
+      // Set initial state and animate both cards with consistent timing
+      tl.fromTo(cards, 
+        {
+          y: 40,
+          opacity: 0,
+          scale: 0.95,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.15, // Reduced stagger for tighter sequence
           ease: 'power2.out',
-          snap: { textContent: 1 },
-          scrollTrigger: {
-            trigger: metricsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-          stagger: 0.2,
-          onUpdate: function() {
-            counter.textContent = Math.floor(this.targets()[0].textContent).toString()
-          },
-        })
-      })
+          clearProps: 'all', // Clean up inline styles after animation
+        }
+      )
     }
 
   }, [])
@@ -82,41 +66,6 @@ export default function About() {
               {bio}
             </p>
           </div>
-
-          {/* Metrics Section */}
-          {metrics && (
-            <div ref={metricsRef} className="flex flex-wrap justify-center gap-8 md:gap-12 py-8">
-              <div className="text-center">
-                <div 
-                  className="metric-number text-4xl md:text-5xl font-light text-primary-500" 
-                  data-target={metrics.projectsImplemented}
-                >
-                  0
-                </div>
-                <p className="text-sm text-muted-foreground mt-2">Projects Implemented</p>
-              </div>
-              
-              <div className="text-center">
-                <div 
-                  className="metric-number text-4xl md:text-5xl font-light text-primary-500" 
-                  data-target={metrics.projectsManaged}
-                >
-                  0
-                </div>
-                <p className="text-sm text-muted-foreground mt-2">Projects Managed E2E</p>
-              </div>
-              
-              <div className="text-center">
-                <div 
-                  className="metric-number text-4xl md:text-5xl font-light text-primary-500" 
-                  data-target={metrics.scrumTeamsManaging}
-                >
-                  0
-                </div>
-                <p className="text-sm text-muted-foreground mt-2">Scrum Teams Managing</p>
-              </div>
-            </div>
-          )}
 
           {/* Contact & Resume Cards with GSAP */}
           <div 
