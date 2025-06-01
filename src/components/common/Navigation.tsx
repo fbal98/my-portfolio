@@ -514,7 +514,7 @@ export default function Navigation() {
               <ThemeToggle />
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 mobile-menu-btn"
+                className="p-3 mobile-menu-btn min-w-[2.75rem] min-h-[2.75rem] flex items-center justify-center rounded-lg hover:bg-foreground/5 transition-colors"
                 aria-label="Toggle menu"
               >
                 <div className="relative w-6 h-6">

@@ -55,14 +55,14 @@ export default function About() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-pulse" />
       
       <div className="container-modern max-w-4xl relative z-10">
-        <div className="text-center space-y-12">
+        <div className="text-center space-y-8 sm:space-y-12">
           {/* Animated About Header */}
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-foreground">
               About Me
             </h2>
             
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
               {bio}
             </p>
           </div>
@@ -70,10 +70,10 @@ export default function About() {
           {/* Contact & Resume Cards with GSAP */}
           <div 
             ref={cardsRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-2xl mx-auto px-4 sm:px-0"
           >
             {/* Contact Card */}
-            <div className="group p-6 border border-border rounded-lg space-y-4 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
+            <div className="group p-5 sm:p-6 border border-border rounded-lg space-y-4 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
               <h3 className="text-xl font-medium text-foreground">Get in Touch</h3>
               
               <div className="space-y-3">
@@ -103,7 +103,7 @@ export default function About() {
             </div>
 
             {/* Resume Card */}
-            <div className="group p-6 border border-border rounded-lg space-y-4 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
+            <div className="group p-5 sm:p-6 border border-border rounded-lg space-y-4 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
               <h3 className="text-xl font-medium text-foreground">Resume</h3>
               
               <p className="text-muted-foreground text-sm">

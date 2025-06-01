@@ -116,23 +116,24 @@ export default function Hero() {
         <div className="floating-element absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/3 rounded-full blur-3xl" />
       </div>
 
-      <div className="container-modern text-center relative z-10 max-w-4xl">
+      <div className="container-modern text-center relative z-10 max-w-4xl px-4 sm:px-6">
         <div className="space-y-8">
           {/* Animated Name */}
           <div className="space-y-6">
             <h1 
               ref={nameRef}
-              className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground whitespace-nowrap overflow-x-auto scrollbar-hide"
+              style={{ fontSize: 'clamp(2.5rem, 5vw + 1rem, 7rem)' }}
             >
               Firas Al Kharusi
             </h1>
 
-            <div ref={roleRef} className="space-y-4">
-              <p className="text-xl md:text-2xl text-muted-foreground font-light">
+            <div ref={roleRef} className="space-y-4 px-4 sm:px-0">
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light">
                 Full Stack Developer & IT Applications Specialist
               </p>
               
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Leading end-to-end IT solutions delivery at{' '}
                 <span className="text-primary-500 font-medium">Vodafone Oman</span>
                 {' '}with expertise in React, Node.js, Go, Python, and cloud technologies.
@@ -143,7 +144,7 @@ export default function Hero() {
           {/* Animated CTA Section */}
           <div
             ref={ctaRef}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 opacity-100"
+            className="flex flex-col sm:flex-row gap-6 sm:gap-4 justify-center items-center pt-8 px-4 sm:px-0 opacity-100"
             style={{ opacity: 1, transform: 'scale(1)' }}
           >
             <MagneticButton
@@ -153,7 +154,7 @@ export default function Hero() {
                 e.preventDefault()
                 scrollToAbout()
               }}
-              className="btn-luxury opacity-100"
+              className="btn-luxury opacity-100 w-full sm:w-auto min-h-[3rem]"
               style={{ display: 'inline-block', opacity: 1 }}
               strength={0.2}
             >
@@ -164,7 +165,7 @@ export default function Hero() {
               as="a"
               href="/resume-2025.pdf"
               target="_blank"
-              className="px-8 py-3 border border-primary-500/30 rounded-full hover:bg-primary-500/10 hover:border-primary-500/50 transition-all duration-300 font-light tracking-wider uppercase text-sm text-primary-500 opacity-100"
+              className="px-8 py-3 border border-primary-500/30 rounded-full hover:bg-primary-500/10 hover:border-primary-500/50 transition-all duration-300 font-light tracking-wider uppercase text-sm text-primary-500 opacity-100 w-full sm:w-auto min-h-[3rem]"
               style={{ display: 'inline-block', opacity: 1 }}
               strength={0.2}
             >
@@ -175,13 +176,13 @@ export default function Hero() {
           {/* Animated Social Links */}
           <div
             ref={socialRef}
-            className="flex justify-center gap-6 pt-12"
+            className="flex justify-center gap-8 sm:gap-6 pt-12"
           >
             <MagneticButton
               as="a"
               href="https://github.com/fbal98"
               target="_blank"
-              className="p-3 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted"
+              className="p-4 sm:p-3 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted min-w-[3rem] min-h-[3rem] flex items-center justify-center"
               aria-label="GitHub"
               strength={0.4}
             >
@@ -192,7 +193,7 @@ export default function Hero() {
               as="a"
               href="https://www.linkedin.com/in/firasb98/"
               target="_blank"
-              className="p-3 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted"
+              className="p-4 sm:p-3 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted min-w-[3rem] min-h-[3rem] flex items-center justify-center"
               aria-label="LinkedIn"
               strength={0.4}
             >
@@ -202,7 +203,7 @@ export default function Hero() {
             <MagneticButton
               as="a"
               href="mailto:Firass269@gmail.com"
-              className="p-3 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted"
+              className="p-4 sm:p-3 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted min-w-[3rem] min-h-[3rem] flex items-center justify-center"
               aria-label="Email"
               strength={0.4}
             >

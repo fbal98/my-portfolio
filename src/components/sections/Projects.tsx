@@ -141,18 +141,18 @@ export default function Projects() {
       <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-500/5 rounded-full blur-3xl" />
       
       <div className="container-modern max-w-6xl relative z-10">
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
           {/* Animated Header */}
-          <ScrollReveal animation="fadeIn" className="text-center space-y-4">
+          <ScrollReveal animation="fadeIn" className="text-center space-y-4 px-4 sm:px-0">
             <AnimatedText
               as="h2"
               animation="splitWords"
-              className="text-4xl md:text-5xl font-light text-foreground"
+              className="text-3xl sm:text-4xl md:text-5xl font-light text-foreground"
               stagger={0.1}
             >
               {`${metrics.projectsImplemented} Projects Delivered`}
             </AnimatedText>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               From enterprise solutions to critical security fixes, leading end-to-end delivery across diverse technology stacks.
             </p>
           </ScrollReveal>
@@ -160,7 +160,7 @@ export default function Projects() {
           {/* Project Grid with GSAP animations */}
           <div 
             ref={projectsGridRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-0"
           >
             {featuredProjects.map((project) => (
               <div
@@ -180,7 +180,7 @@ export default function Projects() {
                   </div>
                   
                   {/* Project Info */}
-                  <div className="p-6 space-y-4">
+                  <div className="p-5 sm:p-6 space-y-4">
                     <div className="space-y-2">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="text-xl font-medium text-foreground group-hover:text-primary-500 transition-colors">

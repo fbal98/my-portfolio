@@ -20,6 +20,9 @@ bun install
 # Linting and type checking
 bun run lint
 bunx tsc --noEmit
+
+# Deploy to Netlify (production)
+bunx --bun next build
 ```
 
 ## Architecture Overview
@@ -319,3 +322,121 @@ This minimalist approach with sophisticated GSAP animations ensures fast loading
 - **Performance**: Theme switching now uses CSS variables efficiently without layout thrashing
 - **Hydration Protection**: Prevents SSR/client mismatches with proper mounting detection
 - **Consistent Naming**: All CSS variables follow consistent naming convention with proper semantic meanings
+
+## Deployment Guide (Netlify)
+
+### Critical Next.js 15 Static Export Requirements
+
+**IMPORTANT**: Next.js 15 with `output: 'export'` has strict requirements for static deployment:
+
+1. **No Dynamic Icon Generation**: The `ImageResponse` API from `next/og` is incompatible with static export
+2. **No Edge Runtime**: Cannot use `export const runtime = 'edge'` in any route
+3. **Static Assets Only**: All assets must be pre-generated at build time
+
+### Icon Generation Solution
+
+Instead of dynamic icon generation files (`icon.tsx`, `apple-icon.tsx`), use static icon files:
+
+```
+public/
+├── favicon.svg          # 32x32 favicon
+└── apple-touch-icon.svg # 180x180 Apple touch icon
+```
+
+Update `layout.tsx` metadata to reference these static icons:
+```typescript
+export const metadata: Metadata = {
+  // ... other metadata
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-touch-icon.svg',
+  },
+}
+```
+
+### Netlify Configuration
+
+The optimized `netlify.toml` configuration:
+
+```toml
+[build]
+  command = "bunx --bun next build"
+  publish = "out"
+  base = "."
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Project-specific redirects
+[[redirects]]
+  from = "/projects/*"
+  to = "/projects/:splat/index.html"
+  status = 200
+
+# Caching headers for performance
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+```
+
+### Common Deployment Issues & Solutions
+
+1. **Build Fails with Icon Generation Error**:
+   - Remove any `icon.tsx` or `apple-icon.tsx` files from `src/app/`
+   - Use static icon files in `public/` directory
+
+2. **Bun Installation Issues**:
+   - Use `bunx --bun next build` instead of installing bun globally
+   - Netlify's build environment has `bunx` available by default
+
+3. **404 on Dynamic Routes**:
+   - Ensure proper redirects in `netlify.toml` for dynamic routes
+   - Next.js static export creates folders with `index.html` files
+
+4. **Conflicting Configuration Files**:
+   - Remove `vercel.json` when deploying to Netlify
+   - Each platform has its own configuration requirements
+
+### Deployment Checklist
+
+- [ ] Remove all dynamic icon generation files
+- [ ] Add static icons to `public/` directory
+- [ ] Update `netlify.toml` with optimized build command
+- [ ] Remove `vercel.json` if present
+- [ ] Run `bunx --bun next build` locally to verify build
+- [ ] Check `out/` directory contains all expected files
+- [ ] Commit and push all changes
+- [ ] Deploy to Netlify
+
+# Important Deployment Reminders
+
+## Next.js 15 Static Export Limitations
+- **NO dynamic server components** - All components must be client-side or static
+- **NO API routes** - Use external APIs or static data only
+- **NO middleware** - Not supported with static export
+- **NO Image Optimization API** - Use `unoptimized: true` in next.config.ts
+- **NO Dynamic Metadata Generation** - Use static metadata only
+
+## Successfully Deployed
+This portfolio is now successfully deployed to Netlify with:
+- Static HTML export working correctly
+- All animations functioning with GSAP
+- Light/Dark theme toggle operational
+- Dynamic project routes properly configured
+- Optimized caching headers for performance
+
+Last successful deployment: January 2025 with Next.js 15.3.2

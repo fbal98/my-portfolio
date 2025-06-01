@@ -198,6 +198,16 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,175,55,0.05);
   }
   
+  /* Hide scrollbar utility */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
   /* Container */
   .container-modern {
     max-width: 1200px;
@@ -219,9 +229,15 @@ body {
 
   /* Section spacing utilities */
   .section-padding {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 
+  @media (min-width: 640px) {
+    .section-padding {
+      padding: 5rem 0;
+    }
+  }
+  
   @media (min-width: 768px) {
     .section-padding {
       padding: 8rem 0;
