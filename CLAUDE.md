@@ -22,7 +22,7 @@ bun run lint
 bunx tsc --noEmit
 
 # Deploy to Netlify (production)
-bunx --bun next build
+npm run build
 ```
 
 ## Architecture Overview
@@ -360,7 +360,7 @@ The optimized `netlify.toml` configuration:
 
 ```toml
 [build]
-  command = "bunx --bun next build"
+  command = "npm run build"
   publish = "out"
   base = "."
 
@@ -399,9 +399,9 @@ The optimized `netlify.toml` configuration:
    - Remove any `icon.tsx` or `apple-icon.tsx` files from `src/app/`
    - Use static icon files in `public/` directory
 
-2. **Bun Installation Issues**:
-   - Use `bunx --bun next build` instead of installing bun globally
-   - Netlify's build environment has `bunx` available by default
+2. **Build Command Issues**:
+   - Use `npm run build` for Netlify deployment as npm is available by default
+   - Bun is not available in Netlify's build environment by default
 
 3. **404 on Dynamic Routes**:
    - Ensure proper redirects in `netlify.toml` for dynamic routes
@@ -417,7 +417,7 @@ The optimized `netlify.toml` configuration:
 - [ ] Add static icons to `public/` directory
 - [ ] Update `netlify.toml` with optimized build command
 - [ ] Remove `vercel.json` if present
-- [ ] Run `bunx --bun next build` locally to verify build
+- [ ] Run `npm run build` locally to verify build
 - [ ] Check `out/` directory contains all expected files
 - [ ] Commit and push all changes
 - [ ] Deploy to Netlify

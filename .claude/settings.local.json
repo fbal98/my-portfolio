@@ -28,7 +28,8 @@
       "Bash(bunx tsc:*)",
       "WebFetch(domain:gsap.com)",
       "Bash(git add:*)",
-      "Bash(bunx:*)"
+      "Bash(bunx:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   },

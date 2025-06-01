@@ -1,5 +1,5 @@
 [build]
-  command = "bunx --bun next build"
+  command = "npm run build"
   publish = "out"
   base = "."
 
