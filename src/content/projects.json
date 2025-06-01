@@ -21,7 +21,8 @@
         "live": null
       },
       "category": "mobile",
-      "year": 2023
+      "year": 2023,
+      "managedE2E": true
     },
     {
       "id": "hse-system",
@@ -44,7 +45,8 @@
         "live": null
       },
       "category": "backend",
-      "year": 2022
+      "year": 2022,
+      "managedE2E": true
     },
     {
       "id": "hotel-management-system",
@@ -105,7 +107,9 @@
         "live": null
       },
       "category": "backend",
-      "year": 2024
+      "year": 2024,
+      "managedE2E": true,
+      "impact": "critical"
     },
     {
       "id": "food-app",

@@ -1,11 +1,10 @@
 [build]
-  command = "npm install -g bun && bun install && bun run build"
+  command = "bunx --bun next build"
   publish = "out"
   base = "."
 
 [build.environment]
   NODE_VERSION = "18"
-  # NPM_FLAGS = "--version" # This line is likely causing the parsing error. Let's remove or comment it out.
 
 # Redirects for SPA behavior
 [[redirects]]

@@ -1,8 +1,9 @@
 'use client'
 
 import { useRef } from 'react'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink, Github, Award } from 'lucide-react'
 import projectsData from '@/content/projects.json'
+import personalInfo from '@/content/personal-info.json'
 import Image from 'next/image'
 import { useGSAP } from '@/hooks/useGSAP'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
@@ -12,6 +13,7 @@ import { gsap } from '@/animations/gsap-config'
 
 export default function Projects() {
   const { projects } = projectsData
+  const { metrics } = personalInfo.personal
   const projectsGridRef = useRef<HTMLDivElement>(null)
   const viewAllRef = useRef<HTMLDivElement>(null)
   
@@ -148,10 +150,10 @@ export default function Projects() {
               className="text-4xl md:text-5xl font-light text-foreground"
               stagger={0.1}
             >
-              Selected Work
+              {`${metrics.projectsImplemented} Projects Delivered`}
             </AnimatedText>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A showcase of projects demonstrating expertise in full-stack development and innovative solutions.
+              From enterprise solutions to critical security fixes, leading end-to-end delivery across diverse technology stacks.
             </p>
           </ScrollReveal>
 
@@ -180,9 +182,17 @@ export default function Projects() {
                   {/* Project Info */}
                   <div className="p-6 space-y-4">
                     <div className="space-y-2">
-                      <h3 className="text-xl font-medium text-foreground group-hover:text-primary-500 transition-colors">
-                        {project.title}
-                      </h3>
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="text-xl font-medium text-foreground group-hover:text-primary-500 transition-colors">
+                          {project.title}
+                        </h3>
+                        {'managedE2E' in project && project.managedE2E && (
+                          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs text-primary-500 bg-primary-500/10 rounded-full">
+                            <Award className="w-3 h-3" />
+                            E2E
+                          </span>
+                        )}
+                      </div>
                       <p className="text-sm text-muted-foreground line-clamp-2">
                         {project.description}
                       </p>
@@ -242,7 +252,7 @@ export default function Projects() {
           <div ref={viewAllRef} className="text-center pt-16">
             <div className="space-y-4">
               <p className="text-muted-foreground font-light">
-                {projects.length} projects in total
+                Showing {featuredProjects.length} featured projects
               </p>
               <div className="group">
                 <MagneticButton
@@ -251,7 +261,7 @@ export default function Projects() {
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary-500 transition-colors duration-300 font-light border-b border-transparent hover:border-primary-500/50"
                   strength={0.1}
                 >
-                  View all work
+                  View all {projects.length} projects
                   <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </MagneticButton>
               </div>

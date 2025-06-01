@@ -112,7 +112,7 @@ export const useMousePosition = () => {
 // Hook for debounced resize handling
 export const useResize = (callback: () => void, delay = 100) => {
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout
+    let timeoutId: ReturnType<typeof setTimeout>
 
     const handleResize = () => {
       clearTimeout(timeoutId)

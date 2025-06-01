@@ -8,11 +8,16 @@ import { gsap } from '@/animations/gsap-config'
 import { ScrollTrigger } from '@/animations/gsap-config'
 import { useGSAP } from '@/hooks/useGSAP'
 import { easings, durations } from '@/animations/gsap-config'
+import { SHOW_PROJECTS_SECTION } from '@/config/featureFlags'
 
-const navItems = [
+const baseNavItems = [
   { name: 'About', href: '#about', icon: User },
-  { name: 'Projects', href: '#projects', icon: FolderOpen },
 ]
+
+// Conditionally add Projects item based on feature flag
+const navItems = SHOW_PROJECTS_SECTION 
+  ? [...baseNavItems, { name: 'Projects', href: '#projects', icon: FolderOpen }]
+  : baseNavItems
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -358,43 +363,55 @@ export default function Navigation() {
   }
 
   // Memoize Bento Grid content for performance
-  const bentoItems = useMemo(() => [
-    {
-      id: 'about',
-      title: 'About Me',
-      description: 'Full Stack Developer specializing in modern web applications',
-      icon: User,
-      href: '#about',
-      preview: '/images/portraits/portrait.jpeg',
-      className: 'col-span-2 row-span-2',
-    },
-    {
-      id: 'projects',
-      title: 'Projects',
-      description: 'Featured work and case studies',
-      icon: FolderOpen,
-      href: '#projects',
-      preview: '/images/projects/trip-management/1.jpeg',
-      className: 'col-span-1 row-span-2',
-    },
-    {
-      id: 'contact',
-      title: 'Contact',
-      description: 'Get in touch',
-      icon: Mail,
-      href: '#about',
-      className: 'col-span-1 row-span-1',
-    },
-    {
-      id: 'resume',
-      title: 'Resume',
-      description: 'Download CV',
-      icon: Download,
-      href: '/resume-2025.pdf',
-      isExternal: true,
-      className: 'col-span-1 row-span-1',
-    },
-  ], [])
+  const bentoItems = useMemo(() => {
+    const items: BentoItem[] = [
+      {
+        id: 'about',
+        title: 'About Me',
+        description: 'Full Stack Developer specializing in modern web applications',
+        icon: User,
+        href: '#about',
+        preview: '/images/portraits/portrait.jpeg',
+        className: 'col-span-2 row-span-2',
+      },
+    ];
+
+    // Conditionally add Projects item
+    if (SHOW_PROJECTS_SECTION) {
+      items.push({
+        id: 'projects',
+        title: 'Projects',
+        description: 'Featured work and case studies',
+        icon: FolderOpen,
+        href: '#projects',
+        preview: '/images/projects/trip-management/1.jpeg',
+        className: 'col-span-1 row-span-2',
+      });
+    }
+
+    // Add remaining items
+    items.push(
+      {
+        id: 'contact',
+        title: 'Contact',
+        description: 'Get in touch',
+        icon: Mail,
+        href: '#about',
+        className: 'col-span-1 row-span-1',
+      },
+      {
+        id: 'resume',
+        title: 'Resume',
+        description: 'Download CV',
+        icon: Download,
+        href: '/resume-2025.pdf',
+        isExternal: true,
+        className: 'col-span-1 row-span-1',
+      }
+    );
+
+    return items;
+  }, [])
 
   if (!mounted) return null
 

@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   keywords: ["Firas Al Kharusi", "Full Stack Developer", "React", "Node.js", "TypeScript", "Software Engineer", "Oman", "Vodafone"],
   authors: [{ name: "Firas Al Kharusi" }],
   creator: "Firas Al Kharusi",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.svg",
+  },
   openGraph: {
     title: "Firas Al Kharusi - Full Stack Developer",
     description: "Full Stack Developer & IT Applications Specialist with expertise in modern web technologies",

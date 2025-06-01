@@ -170,8 +170,8 @@ export const useParallax = (
       },
     })
 
+    const currentElement = elementRef.current
     return () => {
-      const currentElement = elementRef.current
       ScrollTrigger.getAll().forEach(trigger => {
         if (trigger.trigger === currentElement) {
           trigger.kill()
