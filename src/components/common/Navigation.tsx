@@ -419,9 +419,9 @@ export default function Navigation() {
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 w-full z-50 transition-all duration-700 ${
-          scrolled 
-            ? 'py-2 backdrop-blur-md bg-background/80' 
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? 'py-2 backdrop-blur-md bg-background/80'
             : 'py-6'
         }`}
       >

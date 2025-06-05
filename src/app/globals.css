@@ -155,7 +155,7 @@ body {
   .gold-shimmer {
     background: linear-gradient(120deg, transparent 30%, rgba(212,175,55,0.15) 50%, transparent 70%);
     background-size: 200% 100%;
-    animation: shimmer 4s infinite;
+    animation: shimmer 2s infinite;
   }
   
   @keyframes shimmer {
@@ -414,7 +414,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
-    animation: gradient-shift 4s ease infinite;
+    animation: gradient-shift 3s ease infinite;
   }
   
   /* VIP Button Styles */
@@ -520,7 +520,7 @@ body {
   
   /* Animation utilities */
   .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow 1.5s ease-in-out infinite;
   }
   
   @keyframes pulse-glow {
