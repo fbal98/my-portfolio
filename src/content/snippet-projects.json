@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "en": {
+      "business": "Snippet",
+      "tagline": "From idea to launch",
+      "description": "Custom software built for entrepreneurs who move fast",
+      "instagram": "@snippet.om"
+    },
+    "ar": {
+      "business": "مقتطف",
+      "tagline": "من الفكرة إلى الإطلاق",
+      "description": "برمجيات مخصصة لرواد الأعمال الذين يتحركون بسرعة",
+      "instagram": "@snippet.om"
+    }
+  },
+  "projects": [
+    {
+      "id": "restaurant-platform",
+      "en": {
+        "title": "Coral Restaurant Platform",
+        "projectType": "Restaurant SaaS",
+        "description": "A comprehensive restaurant management system featuring real-time analytics, POS interface, order tracking, and table management. Built as a multi-tenant SaaS solution.",
+        "deliverables": [
+          "Analytics dashboard with revenue tracking",
+          "Point-of-sale system with product catalog",
+          "Real-time order management",
+          "Table floor plan with occupancy tracking",
+          "Customer-facing menu and checkout"
+        ]
+      },
+      "ar": {
+        "title": "منصة كورال للمطاعم",
+        "projectType": "نظام SaaS للمطاعم",
+        "description": "نظام شامل لإدارة المطاعم يتضمن تحليلات فورية، واجهة نقاط البيع، تتبع الطلبات، وإدارة الطاولات. مبني كحل SaaS متعدد المستأجرين.",
+        "deliverables": [
+          "لوحة تحليلات مع تتبع الإيرادات",
+          "نظام نقاط البيع مع كتالوج المنتجات",
+          "إدارة الطلبات في الوقت الفعلي",
+          "مخطط الطاولات مع تتبع الإشغال",
+          "قائمة طعام وسلة شراء للعملاء"
+        ]
+      },
+      "status": "completed",
+      "technologies": ["Next.js 15", "React 19", "Tailwind CSS", "PostgreSQL", "Hono.js", "Bun"],
+      "duration": "4 weeks",
+      "year": 2025,
+      "brandColor": "snippet-peach",
+      "images": {
+        "thumbnail": "/images/snippet-projects/restaurant-platform/04-pos-full-view.png",
+        "gallery": [
+          "/images/snippet-projects/restaurant-platform/01-analytics-revenue.png",
+          "/images/snippet-projects/restaurant-platform/02-analytics-products.png",
+          "/images/snippet-projects/restaurant-platform/03-analytics-charts.png",
+          "/images/snippet-projects/restaurant-platform/04-pos-full-view.png",
+          "/images/snippet-projects/restaurant-platform/05-orders-management.png",
+          "/images/snippet-projects/restaurant-platform/06-tables-floor-plan.png",
+          "/images/snippet-projects/restaurant-platform/07-customer-menu.png",
+          "/images/snippet-projects/restaurant-platform/08-checkout-flow.png"
+        ]
+      }
+    },
+    {
+      "id": "era",
+      "en": {
+        "title": "ERA",
+        "projectType": "Multi-Vendor Marketplace",
+        "description": "A comprehensive multi-vendor e-commerce platform connecting Omani boutiques with customers. Features warehouse consignment model, WhatsApp OTP authentication, and integrated payments.",
+        "deliverables": [
+          "Customer mobile app (iOS & Android)",
+          "Vendor management portal",
+          "Admin dashboard with analytics",
+          "Warehouse inventory system",
+          "WhatsApp OTP authentication",
+          "Thawani payment integration"
+        ]
+      },
+      "ar": {
+        "title": "إيرا",
+        "projectType": "سوق متعدد البائعين",
+        "description": "منصة تجارة إلكترونية شاملة متعددة البائعين تربط المتاجر العمانية بالعملاء. تتضمن نموذج الأمانة في المستودع، مصادقة OTP عبر واتساب، ومدفوعات متكاملة.",
+        "deliverables": [
+          "تطبيق الهاتف المحمول للعملاء (iOS و Android)",
+          "بوابة إدارة البائعين",
+          "لوحة إدارة مع تحليلات",
+          "نظام إدارة مخزون المستودع",
+          "مصادقة OTP عبر واتساب",
+          "تكامل بوابة ثواني للدفع"
+        ]
+      },
+      "status": "completed",
+      "technologies": ["React Native", "Expo", "React Web", "Bun", "Hono.js", "PostgreSQL", "Thawani Payment"],
+      "duration": "8 weeks",
+      "year": 2024,
+      "brandColor": "snippet-lavender",
+      "images": {
+        "thumbnail": "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.47.24@2x.png",
+        "gallery": [
+          "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.46.42@2x.png",
+          "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.47.24@2x.png",
+          "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.47.37@2x.png",
+          "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.47.45@2x.png",
+          "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.47.50@2x.png",
+          "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.48.02@2x.png",
+          "/images/snippet-projects/era/CleanShot 2026-01-28 at 00.48.11@2x.png"
+        ]
+      }
+    },
+    {
+      "id": "kanab",
+      "en": {
+        "title": "Kanab",
+        "projectType": "AI-Powered App",
+        "description": "AI furniture visualization app where users upload room photos and receive AI-generated interior design concepts. Powered by Google Gemini for realistic furniture placement.",
+        "deliverables": [
+          "iOS & Android mobile app",
+          "AI-powered room visualization",
+          "Design gallery with versioning",
+          "Real-time generation with progress tracking",
+          "Image upload and preprocessing"
+        ]
+      },
+      "ar": {
+        "title": "كنب",
+        "projectType": "تطبيق مدعوم بالذكاء الاصطناعي",
+        "description": "تطبيق تصور الأثاث بالذكاء الاصطناعي حيث يقوم المستخدمون برفع صور الغرف ويحصلون على مفاهيم تصميم داخلي من الذكاء الاصطناعي. مدعوم بـ Google Gemini لوضع الأثاث بشكل واقعي.",
+        "deliverables": [
+          "تطبيق جوال لـ iOS و Android",
+          "تصور الغرف بالذكاء الاصطناعي",
+          "معرض التصاميم مع الإصدارات",
+          "التوليد في الوقت الفعلي مع تتبع التقدم",
+          "رفع الصور ومعالجتها مسبقاً"
+        ]
+      },
+      "status": "completed",
+      "technologies": ["React Native", "Expo", "Bun", "Hono.js", "Google Gemini", "Supabase"],
+      "duration": "5 weeks",
+      "year": 2024,
+      "brandColor": "snippet-mint",
+      "images": {
+        "thumbnail": "/images/snippet-projects/kanab/generated-image-preview.png",
+        "gallery": [
+          "/images/snippet-projects/kanab/upload-room.png",
+          "/images/snippet-projects/kanab/generated-image-preview.png",
+          "/images/snippet-projects/kanab/gallery.png"
+        ]
+      }
+    },
+    {
+      "id": "muraqeb",
+      "en": {
+        "title": "Muraqeb",
+        "projectType": "Mobile Marketplace",
+        "description": "A marketplace app connecting customers with security camera technicians for installation, maintenance, and consultation services.",
+        "deliverables": [
+          "iOS & Android mobile app",
+          "Technician marketplace with ratings",
+          "Service booking system",
+          "Payment integration (Visa/Mastercard)",
+          "Multi-role authentication"
+        ]
+      },
+      "ar": {
+        "title": "مراقب",
+        "projectType": "سوق إلكتروني للهاتف المحمول",
+        "description": "تطبيق سوق يربط العملاء بفنيي كاميرات المراقبة لخدمات التركيب والصيانة والاستشارة.",
+        "deliverables": [
+          "تطبيق جوال لـ iOS و Android",
+          "سوق الفنيين مع التقييمات",
+          "نظام حجز الخدمات",
+          "تكامل الدفع (Visa/Mastercard)",
+          "مصادقة متعددة الأدوار"
+        ]
+      },
+      "status": "completed",
+      "technologies": ["React Native", "Node.js", "MongoDB", "Firebase"],
+      "duration": "6 weeks",
+      "year": 2024,
+      "brandColor": "snippet-teal",
+      "images": {
+        "thumbnail": "/images/snippet-projects/muraqeb/IMG_3095.jpg",
+        "gallery": [
+          "/images/snippet-projects/muraqeb/IMG_3092.jpg",
+          "/images/snippet-projects/muraqeb/IMG_3094.jpg",
+          "/images/snippet-projects/muraqeb/IMG_3095.jpg",
+          "/images/snippet-projects/muraqeb/IMG_3096.jpg",
+          "/images/snippet-projects/muraqeb/IMG_3097.jpg"
+        ]
+      }
+    }
+  ]
+}

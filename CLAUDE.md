@@ -19,7 +19,7 @@ bun install
 
 # Linting and type checking
 bun run lint
-bunx tsc --noEmit
+npx tsc --noEmit
 
 # Deploy to Netlify (production)
 npm run build

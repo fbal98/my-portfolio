@@ -1,9 +1,10 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { TextPlugin } from 'gsap/dist/TextPlugin'
+import { useGSAP } from '@gsap/react'
 
 // Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger, TextPlugin)
+gsap.registerPlugin(ScrollTrigger, TextPlugin, useGSAP)
 
 // Configure GSAP defaults
 gsap.config({
