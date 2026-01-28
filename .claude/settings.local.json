@@ -29,7 +29,8 @@
       "WebFetch(domain:gsap.com)",
       "Bash(git add:*)",
       "Bash(bunx:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Skill(agent-browser)"
     ],
     "deny": []
   },
