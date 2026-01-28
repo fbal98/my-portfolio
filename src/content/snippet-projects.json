@@ -17,7 +17,7 @@
     {
       "id": "restaurant-platform",
       "en": {
-        "title": "Coral Restaurant Platform",
+        "title": "Moon Restaurant Platform",
         "projectType": "Restaurant SaaS",
         "description": "A comprehensive restaurant management system featuring real-time analytics, POS interface, order tracking, and table management. Built as a multi-tenant SaaS solution.",
         "deliverables": [
