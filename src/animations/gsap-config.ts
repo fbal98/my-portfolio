@@ -15,7 +15,7 @@ gsap.config({
 // Default animation settings
 export const animationDefaults = {
   ease: 'power3.inOut',
-  duration: 0.8,
+  duration: 0.6,
 }
 
 // Easing functions
@@ -42,10 +42,10 @@ export const easings = {
 // Duration presets
 export const durations = {
   instant: 0.1,
-  fast: 0.3,
-  normal: 0.6,
-  slow: 1,
-  xslow: 1.5,
+  fast: 0.25,
+  normal: 0.5,
+  slow: 0.8,
+  xslow: 1.2,
 }
 
 // Stagger presets
